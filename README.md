@@ -4,7 +4,7 @@
 
 <p align="center"><img src="docs/images/pipeline.png" width="850" alt="Scaffold-1 reuses one sparse support; Scaffold-K trains on refreshed supports and infers on their union."></p>
 
-This repository contains the research implementation, shared TunedGNN settings, and the comparison methods in `RelatedMethods/`. Per-dataset accuracy recipes are in [`configs/reported_accuracy.yaml`](configs/reported_accuracy.yaml); see [recipe provenance and commands](docs/ACCURACY.md). Settings are imported from experiment records; full-size accuracy has not been rerun in this cleaned repository.
+This repository contains Scaffold, shared TunedGNN settings, and the comparison methods in `RelatedMethods/`. Dataset-specific settings for Scaffold-1, Scaffold-K, and Scaffold-Full are in [`configs/reported_accuracy.yaml`](configs/reported_accuracy.yaml); see the [settings and run guide](docs/ACCURACY.md).
 
 ## Install
 
@@ -19,17 +19,19 @@ python run.py --dataset karate --smoke --workers 2
 
 The runner selects the visible CUDA device with the most free memory. For a CPU-only test, add `--device cpu`. It never requests a Slurm allocation. `--workers auto` respects CPU affinity and `SLURM_CPUS_PER_TASK`; explicit worker counts are capped at the available allocation. Use the same Python environment for the launcher and its subprocesses.
 
+For five-epoch Cora checks of every method, use `python scripts/smoke.py --dataset cora --epochs 5 --all-methods`. Spectral also needs Julia and its dependencies, described in [METHODS.md](docs/METHODS.md). Add `--all-backbones` to exercise every backbone. Logs and a pass/fail summary are saved under `results/smoke/`.
+
 ## Run an experiment
 
 ```bash
 # Default: Scaffold-Sample, asynchronous refresh, full-graph evaluation.
 python run.py --dataset citeseer --workers auto
 
-# Recorded single-support and K-support settings (Sample unless specified).
+# Dataset-specific single-support and K-support settings.
 python run.py --dataset citeseer --recipe scaffold-1
 python run.py --dataset citeseer --recipe scaffold-k
 
-# Recorded full-evaluation settings; Fast and Batch have recipes too.
+# Full-evaluation settings; Fast and Batch have recipes too.
 python run.py --dataset citeseer --method scaffold-fast --recipe scaffold-full
 
 # Cora reference settings: one fixed support.
@@ -43,7 +45,7 @@ python run.py --method full --dataset cora
 python run.py --method scaffold-batch --dataset ogbn-products --dry-run
 ```
 
-`--recipe` selects the recorded settings, including the backbone, objective, seed, training schedule, and evaluation policy. Recipes preserve historical synchronous/asynchronous behavior. Without a recipe, Fast, Batch, and Sample default to asynchronous refresh every epoch and full-graph evaluation; use `--mode single` for one fixed support or `--mode multi --views 5` for union inference. `--synchronous` waits for each refresh. The no-argument example dataset is CiteSeer.
+`--recipe` selects the dataset's backbone, objective, seed, training schedule, and evaluation policy, including its refresh mode. Without a recipe, Fast, Batch, and Sample default to asynchronous refresh every epoch and full-graph evaluation; use `--mode single` for one fixed support or `--mode multi --views 5` for union inference. `--synchronous` waits for each refresh. The no-argument example dataset is CiteSeer.
 
 `--epochs`, `--runs`, `--seed`, and `--ratio` override the selected settings. A union can exceed the per-support edge budget; a complete spanning forest needs at least `n − c` edges for `c` components. For a custom single/multi run, `--include-full-eval` additionally records validation-selected full-graph inference in `multiview.csv`. The `full` comparator trains and evaluates on the full graph.
 
@@ -63,16 +65,11 @@ Batch defaults to 512 candidates and 64 insertions per cluster round; change the
 
 ## Data, settings, and results
 
-| Configuration | Dataset storage | Outputs and caches |
-|---|---|---|
-| `--config public` (default) | `./data` | `./results` |
-| `--config deception` | `SCAFFOLD_DATA_ROOT` or ignored local override | `./results` |
-
-Relative paths are resolved from the repository root in an editable checkout, or from the working directory after installing a wheel. Public datasets and verified split assets are downloaded by the shared loader when required. For existing datasets:
+Datasets download to `./data`; runs and caches are stored in `./results`. Relative paths are resolved from the repository root in an editable checkout, or from the working directory after installing a wheel. For existing datasets:
 
 ```bash
 export SCAFFOLD_DATA_ROOT=/path/to/existing/datasets
-python run.py --config deception --method scaffold-fast --dataset reddit --workers 32
+python run.py --method scaffold-fast --dataset reddit --workers 32
 ```
 
 Each run writes `resolved.json`, `run.log`, and `status.json` in a unique results directory. Native metric files and shared `metrics.csv` are preserved where produced. Cached partitions, Sample weights, and spectral artifacts live below `results/cache`. Keep caches when measuring warm-start performance; use a fresh cache directory for cold-start measurements. Process wall time includes initialization; method-reported training time is a separate quantity.
@@ -100,6 +97,8 @@ All backbones return a spanning **forest** on disconnected inputs. A tree is the
 | `llsf` | Local-search low-stretch forest; slow |
 
 Legacy names such as `randst`, `maxst`, `mst`, `glst`, `slst`, and `llst` remain accepted. Use Greedy/Heap and low-stretch search backbones only on small graphs. The visualization below is unweighted; weighted backbones may produce different supports when supplied with edge weights.
+
+Fast and Batch select a compatible construction backend automatically: tensor for Kruskal forests and NetworkX for shortest-path/low-stretch forests. LLSF search can be limited with `--llsf-passes`, `--llsf-candidates`, `--llsf-eval-edges`, and `--llsf-cycle-edges`; `--llsf-init randsf` selects its initial forest. The backbone smoke check uses one LLSF pass with sampled candidates and stretch evaluation.
 
 Feature-derived weights can be selected with `--edge-weights cosine` (also `euclidean` or `dot`); `--weighted-paths` additionally enables weighted supporting-path lengths. Uniform weights and hop-count paths are the default.
 

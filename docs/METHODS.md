@@ -1,6 +1,6 @@
 # Methods and settings
 
-Run commands from the repository root after installing the environment. Every method reads the dataset's model/training preset from `configs/tunedgnn_presets.py`; per-method YAML files add method-specific settings. Scaffold's optional `--recipe` overlays the recorded dataset-specific settings in `configs/reported_accuracy.yaml`; see [ACCURACY.md](ACCURACY.md). `--dry-run` prints the resolved configuration. `--smoke` reduces training/search stages and is not an accuracy result.
+Run commands from the repository root after installing the environment. Every method reads the dataset's model/training preset from `configs/tunedgnn_presets.py`; per-method YAML files add method-specific settings. Scaffold's optional `--recipe` overlays the dataset-specific settings in `configs/reported_accuracy.yaml`; see [ACCURACY.md](ACCURACY.md). `--dry-run` prints the resolved configuration. `--smoke` reduces training/search stages and is not an accuracy result.
 
 ## Comparison methods
 
@@ -41,7 +41,7 @@ The supplied wrappers preserve the source accuracy code's dispatch, rather than 
 - **Tuned GraphSAGE:** reuses the shared per-dataset GraphSAGE preset. It is the TunedGNN implementation, not the unused plain GraphSAGE wrapper.
 - **Tuned GraphSAINT-RW:** uses shared GCN hyperparameters. Walk length, sampler steps, and coverage are set in its wrapper and can be overridden using the documented `BASELINE_GRAPHSAINT_*` environment variables. The normalized loss uses the source's `train_mean` convention. Sampled epochs can contain multiple optimizer steps.
 
-The later native full-batch SpMM runtime ports live in the original research experiment tree and follow an evaluation-free timing protocol. They are not used by these accuracy wrappers. The imported reported-accuracy recipes cover Scaffold; comparison settings remain subject to the implementation distinctions above.
+Scaffold recipes are selected with `--recipe`. Comparison methods use the shared training presets and the implementation choices above.
 
 ## Spectral precomputation
 
@@ -61,7 +61,7 @@ For the large-graph C++ backends, install a C++17 compiler, CMake, Eigen3, OpenM
 ```bash
 cmake -S RelatedMethods/Spectral/large_graph -B RelatedMethods/Spectral/build/large_graph
 cmake --build RelatedMethods/Spectral/build/large_graph --parallel 8
-python scripts/precompute_spectral.py --config deception \
+python scripts/precompute_spectral.py \
   --dataset reddit ogbn-products ogbn-proteins pokec --workers 32
 ```
 
@@ -73,4 +73,4 @@ The Julia `run.py` utility demonstrates the original sampler with replacement, w
 
 Use matching PyTorch/PyG binary wheels for `torch-sparse` and `torch-scatter`. The original protein training path additionally uses DGL; install a DGL build compatible with your Python/PyTorch environment before running that profile. No unrelated pruning package is required. The repository targets Linux, where the supplied shell wrappers and CPU-affinity controls are tested.
 
-Full-size accuracy and memory-fit validation for all 19 datasets is a separate campaign. Passing the smoke tests does not establish those results. Do not extrapolate a tiny-graph test into a published scalability claim.
+Use `scripts/smoke.py` for short execution checks before launching longer experiments. See [VALIDATION.md](VALIDATION.md) for tested configurations.

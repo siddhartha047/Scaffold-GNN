@@ -20,11 +20,11 @@ from .runtime import ROOT, read_environment, resolve_device, resolve_workers
 
 def parser():
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--config', default='public', help='public, deception, or a YAML path')
+    p.add_argument('--config', default='public', help='public defaults or a custom YAML path')
     p.add_argument('--method', default='scaffold-sample')
     p.add_argument('--dataset', default='citeseer')
     p.add_argument('--recipe', choices=['scaffold-1','scaffold-k','scaffold-full'],
-                   help='load recorded per-dataset settings from configs/reported_accuracy.yaml')
+                   help='load per-dataset settings from configs/reported_accuracy.yaml')
     p.add_argument('--ratio', type=float, help='retained fraction of undirected edges')
     p.add_argument('--device', help='auto, cpu, or cuda:N (visible-device index)')
     p.add_argument('--workers', help='auto or number of CPU workers')
@@ -32,6 +32,13 @@ def parser():
     p.add_argument('--runs', type=int)
     p.add_argument('--seed', type=int)
     p.add_argument('--backbone', help='e.g. fast-randsf, randsf, fast-maxsf')
+    p.add_argument('--backend', choices=['auto','tensor','networkx'],
+                   help='Fast/Batch construction backend; auto supports every backbone')
+    p.add_argument('--llsf-passes', type=int, help='LLSF local-search passes')
+    p.add_argument('--llsf-init', help='initial forest for LLSF, e.g. randsf')
+    p.add_argument('--llsf-candidates', type=int, help='LLSF candidates per pass; 0 evaluates all')
+    p.add_argument('--llsf-eval-edges', type=int, help='edges used to estimate LLSF stretch; 0 uses all')
+    p.add_argument('--llsf-cycle-edges', type=int, help='LLSF removable edges per cycle; 0 uses all')
     p.add_argument('--edge-weights', choices=['uniform','cosine','euclidean','dot'])
     p.add_argument('--weighted-paths', action='store_true', help='use weighted supporting-path lengths')
     p.add_argument('--mode', choices=['single', 'multi', 'full'],
@@ -77,11 +84,20 @@ def resolve(args):
     override_map = dict(backbone='joint_init_support', edge_weights='scaffold_support_weight_method',
                         sample_forests='scaffold_sample_tree_count', batch_size='joint_sample_size',
                         add_per_round='joint_cluster_add_per_round', clusters='joint_cluster_count',
-                        refresh_every='scaffold_resparsify_every')
+                        refresh_every='scaffold_resparsify_every', backend='scaffold_backend',
+                        llsf_passes='llst_max_passes', llsf_init='llst_init_support',
+                        llsf_candidates='llst_candidate_sample_size', llsf_eval_edges='llst_eval_sample_size',
+                        llsf_cycle_edges='llst_cycle_sample_size')
     config['recipe_overrides'] = {core:getattr(args,key) for key,core in override_map.items()
                                   if getattr(args,key) is not None} if args.recipe else {}
     if args.recipe and args.synchronous is not None:
         config['recipe_overrides']['scaffold_async_resparsify'] = not args.synchronous
+    if args.method in {'scaffold-fast','scaffold-batch'}:
+        backbone = args.backbone or recorded.get('joint_init_support',method['parameters']['joint_init_support'])
+        requested = args.backend or (recorded.get('scaffold_backend','auto') if args.backbone is None else 'auto')
+        config['backend'] = construction_backend(backbone,requested)
+        if args.recipe:
+            config['recipe_overrides']['scaffold_backend'] = config['backend']
     defaults = dict(edge_weights='uniform', sample_forests=5, batch_size=512,
                     add_per_round=64, clusters='auto', refresh_every=1)
     for key, value in defaults.items():
@@ -141,6 +157,15 @@ def resolve(args):
     if args.method == 'scaffold-batch' and (args.batch_size < 1 or not 1 <= args.add_per_round <= args.batch_size):
         raise ValueError('Batch requires 1 <= add-per-round <= batch-size')
     return config, method, preset
+
+
+def construction_backend(backbone, requested='auto'):
+    from .sparsifiers.scaffold.spanning_tree import canonical_support_name
+    tensor_supported = canonical_support_name(backbone) in {
+        'maxst','mst','fast_maxst','fast_mst','randst','fast_randst'}
+    if requested == 'tensor' and not tensor_supported:
+        raise ValueError(f'Backbone {backbone} requires --backend networkx (or auto)')
+    return ('tensor' if tensor_supported else 'networkx') if requested == 'auto' else requested
 
 
 def build_command(args, config, method, preset, output):
@@ -205,6 +230,13 @@ def build_command(args, config, method, preset, output):
                              scaffold_support_weight_method=args.edge_weights)
                 if args.weighted_paths:
                     c.append('--scaffold_weighted_paths')
+                if 'backend' in config:
+                    flags['scaffold_backend']=config['backend']
+                for key,flag in dict(llsf_passes='llst_max_passes', llsf_init='llst_init_support',
+                                     llsf_candidates='llst_candidate_sample_size', llsf_eval_edges='llst_eval_sample_size',
+                                     llsf_cycle_edges='llst_cycle_sample_size').items():
+                    if getattr(args,key) is not None:
+                        flags[flag]=getattr(args,key)
                 if args.method=='scaffold-sample':
                     flags['scaffold_sample_tree_count']=args.sample_forests
                 if args.mode=='full':

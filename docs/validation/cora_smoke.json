@@ -1,0 +1,395 @@
+{
+  "date": "2026-09-23",
+  "dataset": "cora",
+  "nodes": 2708,
+  "undirected_edges": 5278,
+  "gpu": "NVIDIA A100 80GB",
+  "workers": 4,
+  "training_epochs": 5,
+  "runs": 1,
+  "cases": [
+    {
+      "case": "adaglt",
+      "group": "methods",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "0049b459e34586ee53bdc9e78f603cbb1fd201e3c278ad968a3d2201c8060f81"
+    },
+    {
+      "case": "dspar",
+      "group": "methods",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "324e9f2d1f8993e9fa75cb6fe73f49dd7c093d217dab67506164b7298490ccd7"
+    },
+    {
+      "case": "forest-fire",
+      "group": "methods",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "c1ae871274d3873e1b920bd9431054db0235241b3afeafdcec6f303021442269"
+    },
+    {
+      "case": "full",
+      "group": "methods",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "23edfa7ec5905dd5fd838f201cf7b8fe83ad6070b2fcc3dcf5cf93a034b15416"
+    },
+    {
+      "case": "g-spar",
+      "group": "methods",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "1aa4ed6bea4e853ba4952af0f1348bc9ce97a5f9756968458b30ff3d2572c50f"
+    },
+    {
+      "case": "l-sim",
+      "group": "methods",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "b18b7bd91eeac08a29a527f1c0e6cc387507c04e4fa4435bde4cabae06df5954"
+    },
+    {
+      "case": "l-spar",
+      "group": "methods",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "cb25099fa9b4e19800b1e1d327efdcf05eacc8d3d716a22425c88d732450367f"
+    },
+    {
+      "case": "local-degree",
+      "group": "methods",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "a7fe1da5476c5e089a1cfe49e23c889bc58e19ecc4eca27d46888c8b8e5dd725"
+    },
+    {
+      "case": "mog",
+      "group": "methods",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "fc4cebce1429a77e06878137b5e34555352e54a5a70cee56fa276da2509eefd7"
+    },
+    {
+      "case": "no-graph",
+      "group": "methods",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "b54af57fc80c2f3233bf01fad77eac3ef79233fd4da73e6b3803b061b7efa799"
+    },
+    {
+      "case": "random",
+      "group": "methods",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "c45c3fda5c692ebf8b317c6683ef95ff76c68c3412665d510da4ee12e7d5cc7a"
+    },
+    {
+      "case": "rank-degree",
+      "group": "methods",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "4cd2e2e4cd453db90e67c62a284ee1943797ac70b8b89209ba097336702c37da"
+    },
+    {
+      "case": "scaffold-batch",
+      "group": "methods",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "31b22af92c78d98c290184fd0823b74829e620f4ad99ddc8c7c1cdd8b2a62d8a"
+    },
+    {
+      "case": "scaffold-fast",
+      "group": "methods",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "c27c62ea868d7c3b19e0611a837f4c172b8840b8af90908f5d758575bbb5af3d"
+    },
+    {
+      "case": "scaffold-greedy",
+      "group": "methods",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "644678bebf59708ebf7c99ac5bcfa2f37241545ada80cd03c3b85f4503e35761"
+    },
+    {
+      "case": "scaffold-heap",
+      "group": "methods",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "e16aef7068e8b3e90d48702ecf4693293fe365d5d082b6702d1ae5249f5cd0d1"
+    },
+    {
+      "case": "scaffold-sample",
+      "group": "methods",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "e55684942762d7ffd85330d30522f58bcec1173bfd7cc9fdf7935a911347a1f2"
+    },
+    {
+      "case": "scan",
+      "group": "methods",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "6368b005f445627585ad098f800d980a072f1f63ebcef7d7be3d43bff2aa3600"
+    },
+    {
+      "case": "spanning-forest",
+      "group": "methods",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "eb1c9e9ff4a0fd12d4fb2b6a624e8bb6c463de62e4dc4ec0732db26be40e80d6"
+    },
+    {
+      "case": "spectral",
+      "group": "methods",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "bfb87c05b98b4bc516f1b1ca50fd51b7c6678d20aba0c8a77382e15dde4f77cc"
+    },
+    {
+      "case": "t-spanner",
+      "group": "methods",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "c61ceaa6eb9d17d3b0f91074adccfbd88e0c3ed75a7865e68463a84a997bcd22"
+    },
+    {
+      "case": "tuned-graphsage",
+      "group": "methods",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "88afb60cd40026a629d14820fe9c564fad7cc63306b7d021be9221abae2e6533"
+    },
+    {
+      "case": "tuned-graphsaint-rw",
+      "group": "methods",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "25a9b24d727f5d3c13588979a6b08a12ab5864a179eee380a801b64087e4ea04"
+    },
+    {
+      "case": "unified-lth",
+      "group": "methods",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "cea3ac6257b50b81c4092af10770883b8b96cf8d63adf7a010fdce2f9fccf976"
+    },
+    {
+      "case": "backbone-fast-randsf",
+      "group": "backbones",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "22f41ad40a2b4cf964533d0ee8b905ea1b7dc94a50704e4af2acb5026685ea78"
+    },
+    {
+      "case": "backbone-randsf",
+      "group": "backbones",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "ce2b06e11718eeaac261576153eb947f9f3a77f28a8673a4d9802a1f20bacc17"
+    },
+    {
+      "case": "backbone-maxsf",
+      "group": "backbones",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "42c566d386699f254600d9e3775b45f077698a6b218aecc36398ae7265752f15"
+    },
+    {
+      "case": "backbone-minsf",
+      "group": "backbones",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "b6d9469720068a457af0b4bac388a2e4fb7cbb00ce53e35922976d04803dd12f"
+    },
+    {
+      "case": "backbone-fast-maxsf",
+      "group": "backbones",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "43d20017ae10cb9ff0f1c8b885bcbb28b2e1b7d9e3024889f2ca792b2381b559"
+    },
+    {
+      "case": "backbone-fast-minsf",
+      "group": "backbones",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "2d6dbe699d8648f107649be7032a4219d33005b5034f19eadd1d61143edb0e10"
+    },
+    {
+      "case": "backbone-randspt",
+      "group": "backbones",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "16ae0f9b7835165fda198cb72163f236586448076fcd42afe53a9a6f61b8667c"
+    },
+    {
+      "case": "backbone-slsf",
+      "group": "backbones",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "38729b61c8f93e50a3be49756ed39c033d4acb4d1b1a1f74edb22b709b1c4e63"
+    },
+    {
+      "case": "backbone-glsf",
+      "group": "backbones",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "dc909bde135fbed0e1cb40f269515d3e6e932d1532507bb0aef5fad9c2fa0a3b"
+    },
+    {
+      "case": "backbone-llsf",
+      "group": "backbones",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "f991131734228edeea2d57ab55d9e8024e5f2e7750753cda6d3d06cd893dbbca",
+      "search_settings": {
+        "initial_backbone": "randsf",
+        "passes": 1,
+        "candidates": 16,
+        "evaluation_edges": 128,
+        "cycle_edges": 4
+      }
+    },
+    {
+      "case": "recipe-greedy-1",
+      "group": "protocols",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "be8f90ea255e85a58ed4879d7fb45779c6e1d69907a76335b4cc9f3d0256d769"
+    },
+    {
+      "case": "recipe-heap-1",
+      "group": "protocols",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "675604d55174955012272b746d3e5167e1c42336c0b93bc0d24c75c467942d73"
+    },
+    {
+      "case": "weighted-fast",
+      "group": "protocols",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "ba9627157134263318dd6b6cfba35d23afe25dc4476bfa3bcc6bc1affcd0fcc3"
+    },
+    {
+      "case": "weighted-batch",
+      "group": "protocols",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "b71993323aa4008666b2b2eebe40f6922497924778e9e76eff8a4283345f9e45"
+    },
+    {
+      "case": "multi-fast",
+      "group": "protocols",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "4587c51374044d5c2b027da496fc659883bea0dfaefb028409c391a8e8262169",
+      "views": {
+        "1": "OK",
+        "3": "OK",
+        "best": "OK",
+        "all": "OK"
+      }
+    },
+    {
+      "case": "async-fast",
+      "group": "protocols",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "486e753ae46c3e5ae81d210e4ddfea3a9f1a5854982eaa578bd87b4664bf68cf",
+      "refreshes_applied": 4,
+      "wait_for_completion": true
+    },
+    {
+      "case": "multi-batch",
+      "group": "protocols",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "e6d469561d9cd61f484093a0efe4d82ccb16da7668c9c44b996f6a0663006150",
+      "views": {
+        "1": "OK",
+        "3": "OK",
+        "best": "OK",
+        "all": "OK"
+      }
+    },
+    {
+      "case": "async-batch",
+      "group": "protocols",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "5a3baf7abb3597c1b47b98fe759a8c15391df0db57f3992308ee43860523cf5f",
+      "refreshes_applied": 4,
+      "wait_for_completion": true
+    },
+    {
+      "case": "multi-sample",
+      "group": "protocols",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "57817635bcb1f224eccda1d8ef4ae657b713532309f1e67885192ed55d12ff70",
+      "views": {
+        "1": "OK",
+        "3": "OK",
+        "best": "OK",
+        "all": "OK"
+      }
+    },
+    {
+      "case": "async-sample",
+      "group": "protocols",
+      "status": "passed",
+      "training_epochs": 5,
+      "exit_code": 0,
+      "log_sha256": "7b9e01707e711b928c32fdbe8cec95936e7bcd7b0e93778e0e5366b7ceecad1c",
+      "refreshes_applied": 4,
+      "wait_for_completion": true
+    }
+  ]
+}

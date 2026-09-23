@@ -48,8 +48,13 @@ def resolve_device(value='auto', *, dry_run=False):
 
 
 def read_environment(name='public'):
-    path = ROOT / 'configs' / f'{name}.yaml' if name in {'public', 'deception'} else Path(name)
+    path = ROOT / 'configs' / 'public.yaml' if name == 'public' else Path(name)
+    # Retain the private checkout alias without distributing site settings.
+    if name == 'deception':
+        path = ROOT / '.local' / 'deception.yaml'
     settings = yaml.safe_load(path.read_text())
+    if settings.get('profile') == 'public' and os.environ.get('SCAFFOLD_DATA_ROOT'):
+        settings['data_dir'] = os.environ['SCAFFOLD_DATA_ROOT']
     if settings.get('profile') == 'deception':
         local = ROOT / '.local' / 'deception.json'
         local_data = json.loads(local.read_text()).get('data_dir') if local.exists() else None

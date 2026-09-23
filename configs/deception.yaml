@@ -1,8 +1,0 @@
-profile: deception
-data_dir: ${SCAFFOLD_DATA_ROOT}
-results_dir: ./results
-cache_dir: ./results/cache
-device: auto
-workers: auto
-training_profile: original
-seed: 42
