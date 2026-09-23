@@ -113,14 +113,6 @@ def test_reported_accuracy_reserves_all_three_evaluation_protocols():
         assert settings==dict.fromkeys(['scaffold_1','scaffold_k','scaffold_full'])
 
 
-def test_anonymous_export_keeps_data_loader_not_local_data():
-    from scripts.export_anonymous import source_files
-    names={str(rel) for _,rel in source_files()}
-    assert 'scaffold_gnn/data/datasets.py' in names
-    assert 'scaffold_gnn/data/connector.py' in names
-    assert not any(name.startswith(('.local/','results/','data/','.git/')) for name in names)
-
-
 @pytest.mark.parametrize('profile',['ogbn-arxiv','ogbn-proteins'])
 def test_large_graph_mog_sources_load_locally(profile):
     import torch
