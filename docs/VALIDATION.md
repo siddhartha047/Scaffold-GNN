@@ -6,13 +6,14 @@ Checked on 2026-09-23. These are execution and integration checks, not a full ac
 
 | Check | Result |
 |---|---|
-| Unit/integration tests, including spectral artifact tests | 24 passed |
+| Unit/integration tests, including spectral artifact tests | 36 passed |
 | Shared configuration matrix | All 24 methods × 19 paper datasets resolve; core argument lists parse |
 | GPU smoke matrix | All 24 method entry points completed one tiny Karate training run |
 | Cora GPU smoke runs | Full Graph; Fast, Batch, Sample; DSpar, MoG, AdaGLT, Unified-LTH; Tuned GraphSAGE; Tuned GraphSAINT-RW passed |
 | Parallel construction | Fast and Batch completed Cora with four partitions and four workers actually used |
 | Weighted construction | Fast-MaxSF, cosine weights, and weighted supporting paths completed a Cora GPU run |
 | Multiple-support inference | Sample refreshed synchronously for five tiny epochs; best-1 and union-3 rows both reported `OK`, with three effective supports |
+| Scaffold-Full inference | CPU Karate runs for fixed-support Fast and refreshed-support Sample completed; full-graph rows reported `OK`, validation-selected checkpoints, all 78 original edges, and the unchanged 0.7 training target (55 retained edges) |
 | Julia spectral path | Computed approximate effective resistances on Karate; the top-level exact-budget Spectral consumer then trained successfully on GPU |
 | Large-graph C++ backend | Built with CMake; JL-PCG completed a small graph with 16 projections and two threads |
 | Larger-graph MoG module integration | Both Arxiv and Proteins native learner modules loaded locally and passed tiny forward/backward checks |

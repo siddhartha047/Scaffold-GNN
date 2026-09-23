@@ -4,9 +4,11 @@ The cleaned runner has one shared model-preset table and one shared graph/split 
 
 ## Accuracy recipes
 
-`configs/reported_accuracy.yaml` is deliberately pending. Existing research defaults are usable, but they are not a claim of reproducing the submitted table. Fill the validated per-dataset Scaffold-1 and Scaffold-K recipes after the next accuracy campaign. Select configurations/checkpoints using validation data, never test accuracy. Preserve run seeds, split fingerprints, actual edge counts, checkpoint policy, refresh cadence, and union size.
+`configs/reported_accuracy.yaml` is deliberately pending. Existing research defaults are usable, but they are not a claim of reproducing the submitted table. Fill the validated per-dataset Scaffold-1, Scaffold-K, and Scaffold-Full recipes after the next accuracy campaign. Select configurations/checkpoints using validation data, never test accuracy. Preserve run seeds, split fingerprints, actual edge counts, checkpoint policy, refresh cadence, and union size.
 
 Scaffold-1 retains one support throughout training. Scaffold-K refreshes supports asynchronously and retains a validation-ranked graph bank for final union inference. The requested per-support ratio and realized union ratio are different quantities. Sample's number of precomputation forests is independent of the number of inference supports.
+
+Scaffold-Full trains on sparse supports and evaluates on the original full graph. Add `--include-full-eval` to a Fast, Batch, or Sample run; `--mode` still controls whether training reuses or refreshes supports. The full graph has its own validation-selected checkpoint, recorded as `view=all`, `model_policy=best-validation` in `multiview.csv`; `target_ratio` remains the training support budget and `achieved_ratio=1` describes full-graph inference. Check `status=OK` before using the metric. Full-graph validation runs at the configured evaluation cadence and its cost must be included when reporting runtime. The `--method full` baseline instead trains on the full graph too.
 
 ## Time measurements
 

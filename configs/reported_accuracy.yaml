@@ -1,62 +1,85 @@
 status: pending_validation
 selection_rule: validation_only
+evaluation_protocols:
+  scaffold_1: Sparse-support training and single-support inference.
+  scaffold_k: Refreshed sparse-support training and union-of-K-supports inference.
+  scaffold_full: Sparse-support training and original full-graph inference; enable --include-full-eval.
 note: Reserved for finalized per-dataset/per-variant settings. Defaults do not claim
   to reproduce the reported accuracy.
 settings:
   amazon-computer:
     scaffold_1: null
     scaffold_k: null
+    scaffold_full: null
   amazon-photo:
     scaffold_1: null
     scaffold_k: null
+    scaffold_full: null
   amazon-ratings:
     scaffold_1: null
     scaffold_k: null
+    scaffold_full: null
   chameleon:
     scaffold_1: null
     scaffold_k: null
+    scaffold_full: null
   citeseer:
     scaffold_1: null
     scaffold_k: null
+    scaffold_full: null
   coauthor-cs:
     scaffold_1: null
     scaffold_k: null
+    scaffold_full: null
   coauthor-physics:
     scaffold_1: null
     scaffold_k: null
+    scaffold_full: null
   cora:
     scaffold_1: null
     scaffold_k: null
+    scaffold_full: null
   minesweeper:
     scaffold_1: null
     scaffold_k: null
+    scaffold_full: null
   ogbn-arxiv:
     scaffold_1: null
     scaffold_k: null
+    scaffold_full: null
   ogbn-products:
     scaffold_1: null
     scaffold_k: null
+    scaffold_full: null
   ogbn-proteins:
     scaffold_1: null
     scaffold_k: null
+    scaffold_full: null
   pokec:
     scaffold_1: null
     scaffold_k: null
+    scaffold_full: null
   pubmed:
     scaffold_1: null
     scaffold_k: null
+    scaffold_full: null
   questions:
     scaffold_1: null
     scaffold_k: null
+    scaffold_full: null
   reddit:
     scaffold_1: null
     scaffold_k: null
+    scaffold_full: null
   roman-empire:
     scaffold_1: null
     scaffold_k: null
+    scaffold_full: null
   squirrel:
     scaffold_1: null
     scaffold_k: null
+    scaffold_full: null
   wikics:
     scaffold_1: null
     scaffold_k: null
+    scaffold_full: null

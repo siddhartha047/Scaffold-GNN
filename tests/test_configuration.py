@@ -76,6 +76,43 @@ def test_multiview_command_satisfies_core_protocol():
     assert parsed.scaffold_resparsify_every==20
 
 
+@pytest.mark.parametrize('method',['scaffold-fast','scaffold-batch','scaffold-sample'])
+@pytest.mark.parametrize('mode',['single','multi'])
+def test_full_evaluation_preserves_sparse_training(method,mode):
+    from scaffold_gnn.parse import parser_add_main_args
+    from scaffold_gnn.utils.scaffold_multiview import validate_final_views
+    args=parser().parse_args(['--method',method,'--dataset','cora','--ratio','0.7',
+                             '--mode',mode,'--views','3','--include-full-eval','--dry-run'])
+    conf,spec,preset=resolve(args)
+    command=build_command(args,conf,spec,preset,ROOT/'results'/'test-full')
+    parsed=parser_add_main_args(argparse.ArgumentParser()).parse_args(command[4:])
+    expected=('1','3','all') if mode=='multi' else ('1','all')
+    assert validate_final_views(parsed)==expected
+    assert parsed.scaffold_final_best_full_checkpoint
+    assert parsed.target_ratio==conf['ratio']==0.7
+    assert parsed.sparsifier==spec['sparsifier']
+    assert parsed.scaffold_resparsify_every==(20 if mode=='multi' else 0)
+    assert parsed.scaffold_final_graph_bank_size==(3 if mode=='multi' else 1)
+    assert conf['include_full_eval'] is True
+
+
+@pytest.mark.parametrize('method',['full','no-graph','scaffold-greedy','scaffold-heap','dspar'])
+def test_full_evaluation_rejects_unsupported_methods(method):
+    args=parser().parse_args(['--method',method,'--include-full-eval','--dry-run'])
+    with pytest.raises(ValueError,match='--include-full-eval supports'):
+        resolve(args)
+
+
+def test_reported_accuracy_reserves_all_three_evaluation_protocols():
+    recipes=yaml.safe_load((ROOT/'configs/reported_accuracy.yaml').read_text())
+    datasets=yaml.safe_load((ROOT/'configs/datasets.yaml').read_text())
+    assert recipes['status']=='pending_validation'
+    assert recipes['selection_rule']=='validation_only'
+    assert recipes['settings'].keys()==datasets.keys()
+    for settings in recipes['settings'].values():
+        assert settings==dict.fromkeys(['scaffold_1','scaffold_k','scaffold_full'])
+
+
 def test_anonymous_export_keeps_data_loader_not_local_data():
     from scripts.export_anonymous import source_files
     names={str(rel) for _,rel in source_files()}
