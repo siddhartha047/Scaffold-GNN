@@ -1,0 +1,114 @@
+amazon-computer:
+  target_ratio: 0.3
+  ratios:
+  - 0.3
+  - 0.5
+  - 0.7
+amazon-photo:
+  target_ratio: 0.3
+  ratios:
+  - 0.3
+  - 0.5
+  - 0.7
+amazon-ratings:
+  target_ratio: 0.7
+  ratios:
+  - 0.3
+  - 0.5
+  - 0.7
+chameleon:
+  target_ratio: 0.3
+  ratios:
+  - 0.3
+  - 0.5
+  - 0.7
+citeseer:
+  target_ratio: 0.7
+  ratios:
+  - 0.3
+  - 0.5
+  - 0.7
+coauthor-cs:
+  target_ratio: 0.5
+  ratios:
+  - 0.3
+  - 0.5
+  - 0.7
+coauthor-physics:
+  target_ratio: 0.3
+  ratios:
+  - 0.3
+  - 0.5
+  - 0.7
+cora:
+  target_ratio: 0.7
+  ratios:
+  - 0.3
+  - 0.5
+  - 0.7
+minesweeper:
+  target_ratio: 0.7
+  ratios:
+  - 0.3
+  - 0.5
+  - 0.7
+ogbn-arxiv:
+  target_ratio: 0.3
+  ratios:
+  - 0.1
+  - 0.3
+  - 0.5
+ogbn-products:
+  target_ratio: 0.3
+  ratios:
+  - 0.1
+  - 0.3
+  - 0.5
+ogbn-proteins:
+  target_ratio: 0.3
+  ratios:
+  - 0.1
+  - 0.3
+  - 0.5
+pokec:
+  target_ratio: 0.3
+  ratios:
+  - 0.1
+  - 0.3
+  - 0.5
+pubmed:
+  target_ratio: 0.5
+  ratios:
+  - 0.3
+  - 0.5
+  - 0.7
+questions:
+  target_ratio: 0.7
+  ratios:
+  - 0.3
+  - 0.5
+  - 0.7
+reddit:
+  target_ratio: 0.3
+  ratios:
+  - 0.1
+  - 0.3
+  - 0.5
+roman-empire:
+  target_ratio: 0.7
+  ratios:
+  - 0.3
+  - 0.5
+  - 0.7
+squirrel:
+  target_ratio: 0.3
+  ratios:
+  - 0.3
+  - 0.5
+  - 0.7
+wikics:
+  target_ratio: 0.3
+  ratios:
+  - 0.3
+  - 0.5
+  - 0.7

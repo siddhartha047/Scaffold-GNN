@@ -1,0 +1,11 @@
+kind: scaffold
+sparsifier: scaffold_sample
+parameters:
+  joint_init_support: fast-randsf
+  joint_alpha: 1.0
+  joint_beta: 1.0
+  joint_node_beta: 0.0
+  scaffold_sample_tree_count: 5
+  scaffold_sample_backbone: rotate-randsf
+  scaffold_sample_scheme: systematic
+description: Scaffold-Sample support construction.

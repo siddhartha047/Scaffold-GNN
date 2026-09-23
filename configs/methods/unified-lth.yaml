@@ -1,0 +1,15 @@
+kind: baseline
+runner: scripts/methods/unified_lth/run_unified_lth.sh
+parameters: {}
+description: Native method or documented scalable adapter, with a shared TunedGNN
+  preset.
+implementation:
+  default: native small-graph GCN
+  overrides:
+    reddit: deterministic-ticket adapter (not native Unified-LTH)
+    ogbn-products: deterministic-ticket adapter (not native Unified-LTH)
+    ogbn-arxiv: deterministic-ticket adapter (not native Unified-LTH)
+    ogbn-proteins: deterministic-ticket adapter (not native Unified-LTH)
+    pokec: deterministic-ticket adapter (not native Unified-LTH)
+    coauthor-physics: deterministic-ticket adapter (not native Unified-LTH)
+    questions: deterministic-ticket adapter (not native Unified-LTH)

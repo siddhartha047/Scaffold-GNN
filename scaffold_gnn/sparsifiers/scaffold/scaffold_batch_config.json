@@ -1,0 +1,60 @@
+{
+  "default": {
+    "epochs": 500,
+    "runs": 1,
+    "seed": 123,
+    "wandb_mode": "disabled",
+    "display_step": 100,
+    "eval_step": 1,
+    "target_ratio": 0.6,
+    "joint_init_support": "fast-randst",
+    "joint_alpha": 1.0,
+    "joint_edge_beta": 1.0,
+    "joint_node_beta": 1.0,
+    "joint_cluster_count": "auto",
+    "joint_cluster_method": "metis",
+    "joint_cluster_strategy": "sample",
+    "joint_parallel_workers": 16,
+    "joint_sampling_mode": "weighted",
+    "joint_sample_size": 64,
+    "joint_cluster_add_per_round": 8,
+    "scaffold_fast_mode": "quality",
+    "scaffold_backend": "auto",
+    "scaffold_fast_score": "tree_exact_loop",
+    "scaffold_metis_edge_sample_size": 500000,
+    "scaffold_support_budget_mode": "full_then_random_trim",
+    "scaffold_resparsify_every": 1,
+    "scaffold_resparsify_include_final": true,
+    "scaffold_resparsify_reseed": "true",
+    "scaffold_eval_graph": "sparse",
+    "scaffold_eval_ensemble_size": 5,
+    "scaffold_eval_ensemble_source": "best",
+    "scaffold_eval_ensemble_reduce": "union",
+    "scaffold_eval_graph_bank_dir": "auto",
+    "model_profile": "auto",
+    "gnn": "gcn"
+  },
+  "datasets": {
+    "karate": {
+      "target_ratio": 0.6,
+      "joint_init_support": "maxst",
+      "scaffold_backend": "networkx",
+      "scaffold_fast_score": "exact",
+      "joint_cluster_method": "bfs",
+      "joint_cluster_count": 1,
+      "joint_parallel_workers": 0,
+      "joint_sampling_mode": "full",
+      "joint_sample_size": 0,
+      "joint_cluster_add_per_round": 1
+    },
+    "cora": {
+      "target_ratio": 0.2,
+      "runs": 5,
+      "scaffold_backend": "tensor",
+      "scaffold_fast_score": "tree_exact_loop",
+      "joint_cluster_count": "auto",
+      "joint_sample_size": 64,
+      "joint_cluster_add_per_round": 8
+    }
+  }
+}

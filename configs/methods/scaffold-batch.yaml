@@ -1,0 +1,12 @@
+kind: scaffold
+sparsifier: scaffold_batch
+parameters:
+  joint_init_support: fast-randsf
+  joint_alpha: 1.0
+  joint_beta: 1.0
+  joint_node_beta: 0.0
+  scaffold_backend: tensor
+  scaffold_fast_score: tree_exact_loop
+  joint_sample_size: 512
+  joint_cluster_add_per_round: 64
+description: Scaffold-Batch support construction.

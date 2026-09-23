@@ -1,0 +1,160 @@
+import os
+import torch
+from scripts.common.baseline_result_utils import append_baseline_result
+
+class Logger(object):
+    """ Adapted from https://github.com/snap-stanford/ogb/ """
+    def __init__(self, runs, info=None):
+        self.info = info
+        self.results = [[] for _ in range(runs)]
+
+    def add_result(self, run, result):
+        # Accuracy-only callers use four fields.  Large-graph entrypoints that
+        # compute macro-F1 append train/test F1 as fields five and six.
+        assert len(result) in [4, 6]
+        assert run >= 0 and run < len(self.results)
+        self.results[run].append(result)
+
+    def print_statistics(self, run=None, mode='max_acc'):
+        if run is not None:
+            if not self.results[run]:
+                # No add_result call happened, e.g. a short-epoch smoke/timing
+                # run finished before this preset's eval warmup (eval_epoch)
+                # was reached. Nothing to summarize; don't crash the process
+                # over an empty accuracy trajectory.
+                print(f'Run {run + 1:02d}: no evaluated epochs recorded')
+                self.test = None
+                return
+            result = 100 * torch.tensor(self.results[run])
+            argmax = result[:, 1].argmax().item()
+            argmin = result[:, 3].argmin().item()
+            if mode == 'max_acc':
+                ind = argmax
+            else:
+                ind = argmin
+            print(f'Run {run + 1:02d}:')
+            print(f'Highest Train: {result[:, 0].max():.2f}')
+            print(f'Highest Valid: {result[:, 1].max():.2f}')
+            print(f'Highest Test: {result[:, 2].max():.2f}')
+            print(f'Chosen epoch: {ind}')
+            print(f'Final Train: {result[ind, 0]:.2f}')
+            print(f'Final Test: {result[ind, 2]:.2f}')
+            if result.shape[1] >= 6:
+                print(f'Final Test F1 (Macro): {result[ind, 5]:.2f}')
+            self.test=result[ind, 2]
+            append_baseline_result(
+                method=os.environ.get('BASELINE_METHOD', 'tunedgnn'),
+                dataset=getattr(self.info, 'dataset', None),
+                run=run + 1,
+                seed=getattr(self.info, 'seed', None),
+                epochs=getattr(self.info, 'epochs', None),
+                train_acc=result[ind, 0].item(),
+                valid_acc=result[ind, 1].item(),
+                test_acc=result[ind, 2].item(),
+                train_f1_macro=result[ind, 4].item() if result.shape[1] >= 6 else None,
+                test_f1_macro=result[ind, 5].item() if result.shape[1] >= 6 else None,
+                chosen_epoch=ind,
+            )
+        else:
+            non_empty_runs = [run_results for run_results in self.results if run_results]
+            if not non_empty_runs:
+                # Every run finished with no add_result calls (e.g. a short
+                # timing-only run that ended before this preset's eval_epoch
+                # warmup). Nothing to aggregate; don't crash on empty tensors.
+                print('All runs: no evaluated epochs recorded')
+                self.test = None
+                return torch.tensor([])
+            result = 100 * torch.tensor(non_empty_runs)
+
+            best_results = []
+            for r in result:
+                train1 = r[:, 0].max().item()
+                test1 = r[:, 2].max().item()
+                valid = r[:, 1].max().item()
+                if mode == 'max_acc':
+                    best_idx = r[:, 1].argmax()
+                    train2 = r[best_idx, 0].item()
+                    test2 = r[best_idx, 2].item()
+                else:
+                    best_idx = r[:, 3].argmin()
+                    train2 = r[best_idx, 0].item()
+                    test2 = r[best_idx, 2].item()
+                if r.shape[1] >= 6:
+                    train_f1 = r[best_idx, 4].item()
+                    test_f1 = r[best_idx, 5].item()
+                    best_results.append((train1, test1, valid, train2, test2, train_f1, test_f1))
+                else:
+                    best_results.append((train1, test1, valid, train2, test2))
+
+            best_result = torch.tensor(best_results)
+
+            print(f'All runs:')
+            def _std(x):
+                return x.std(unbiased=False).item() if x.numel() > 1 else 0.0
+            r = best_result[:, 0]
+            print(f'Highest Train: {r.mean():.2f} ± {_std(r):.2f}')
+            r = best_result[:, 1]
+            print(f'Highest Test: {r.mean():.2f} ± {_std(r):.2f}')
+            r = best_result[:, 2]
+            print(f'Highest Valid: {r.mean():.2f} ± {_std(r):.2f}')
+            r = best_result[:, 3]
+            print(f'  Final Train: {r.mean():.2f} ± {_std(r):.2f}')
+            r = best_result[:, 4]
+            print(f'   Final Test: {r.mean():.2f} ± {_std(r):.2f}')
+            if best_result.shape[1] >= 7:
+                test_f1 = best_result[:, 6]
+                print(f'Final Test F1 (Macro): {test_f1.mean():.2f} ± {_std(test_f1):.2f}')
+
+            self.test=r.mean()
+            return best_result[:, 4]
+
+    def output(self,out_path,info):
+        with open(out_path,'a') as f:
+            f.write(info)
+            f.write(f'test acc:{self.test}\n')
+
+import os
+def save_model(args, model, optimizer, run):
+    if not os.path.exists(f'models/{args.dataset}'):
+        os.makedirs(f'models/{args.dataset}')
+    if(args.model=='MPNN'):
+        model_path = f'models/{args.dataset}/{args.model}_{run}.pt'
+    else:
+        model_path = f'models/{args.dataset}/{args.model}_{run}.pt'
+    torch.save({'model_state_dict': model.state_dict(),
+                'optimizer_state_dict': optimizer.state_dict()
+                }, model_path)
+
+def load_model(args, model, optimizer, run):
+    if(args.model=='MPNN'):
+        model_path = f'models/{args.dataset}/{args.model}_{run}.pt'
+    else:
+        model_path = f'models/{args.dataset}/{args.model}_{run}.pt'
+    checkpoint = torch.load(model_path)
+    model.load_state_dict(checkpoint['model_state_dict'])
+    optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+
+    return model, optimizer
+
+def save_result(args, results):
+    def _std(x):
+        return x.std(unbiased=False).item() if x.numel() > 1 else 0.0
+
+    results_root = os.environ.get('RESULTS_ROOT', 'results')
+    if not os.path.exists(f'{results_root}/{args.dataset}'):
+        os.makedirs(f'{results_root}/{args.dataset}')
+    if(args.model=='MPNN'):
+        filename = f'{results_root}/{args.dataset}/{args.model}.csv'
+    else:
+        filename = f'{results_root}/{args.dataset}/{args.model}.csv'
+    print(f"Saving results to {filename}")
+    with open(f"{filename}", 'a+') as write_obj:
+        if(args.model=='MPNN'):
+            write_obj.write(
+                f"{args.model} " + f"{args.lr} " + f"{args.hidden_channels} " + f"{args.local_layers} " + f"{args.dropout} " + f"{args.ln} " + \
+                f"{args.bn} " + f"{args.res} " + \
+                f"{results.mean():.2f} $\pm$ {_std(results):.2f} \n")
+        else:
+            write_obj.write(
+                f"{args.model} " + f"{args.lr} " + \
+                f"{results.mean():.2f} $\pm$ {_std(results):.2f} \n")

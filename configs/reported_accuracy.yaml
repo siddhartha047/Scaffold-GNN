@@ -1,0 +1,62 @@
+status: pending_validation
+selection_rule: validation_only
+note: Reserved for finalized per-dataset/per-variant settings. Defaults do not claim
+  to reproduce the reported accuracy.
+settings:
+  amazon-computer:
+    scaffold_1: null
+    scaffold_k: null
+  amazon-photo:
+    scaffold_1: null
+    scaffold_k: null
+  amazon-ratings:
+    scaffold_1: null
+    scaffold_k: null
+  chameleon:
+    scaffold_1: null
+    scaffold_k: null
+  citeseer:
+    scaffold_1: null
+    scaffold_k: null
+  coauthor-cs:
+    scaffold_1: null
+    scaffold_k: null
+  coauthor-physics:
+    scaffold_1: null
+    scaffold_k: null
+  cora:
+    scaffold_1: null
+    scaffold_k: null
+  minesweeper:
+    scaffold_1: null
+    scaffold_k: null
+  ogbn-arxiv:
+    scaffold_1: null
+    scaffold_k: null
+  ogbn-products:
+    scaffold_1: null
+    scaffold_k: null
+  ogbn-proteins:
+    scaffold_1: null
+    scaffold_k: null
+  pokec:
+    scaffold_1: null
+    scaffold_k: null
+  pubmed:
+    scaffold_1: null
+    scaffold_k: null
+  questions:
+    scaffold_1: null
+    scaffold_k: null
+  reddit:
+    scaffold_1: null
+    scaffold_k: null
+  roman-empire:
+    scaffold_1: null
+    scaffold_k: null
+  squirrel:
+    scaffold_1: null
+    scaffold_k: null
+  wikics:
+    scaffold_1: null
+    scaffold_k: null

@@ -1,0 +1,10 @@
+kind: scaffold
+sparsifier: scaffold_fast
+parameters:
+  joint_init_support: fast-randsf
+  joint_alpha: 1.0
+  joint_beta: 1.0
+  joint_node_beta: 0.0
+  scaffold_backend: tensor
+  scaffold_fast_score: tree_exact
+description: Scaffold-Fast support construction.

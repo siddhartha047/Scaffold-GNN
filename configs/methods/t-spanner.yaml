@@ -1,0 +1,4 @@
+kind: sparsifier
+sparsifier: las_vegas_spanner
+parameters: {}
+description: Fixed support with the shared TunedGNN training preset.

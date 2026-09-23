@@ -1,0 +1,4 @@
+kind: sparsifier
+sparsifier: scan
+parameters: {}
+description: Fixed support with the shared TunedGNN training preset.

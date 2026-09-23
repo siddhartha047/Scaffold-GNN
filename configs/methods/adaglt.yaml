@@ -1,0 +1,18 @@
+kind: baseline
+runner: scripts/methods/adaglt/run_adaglt.sh
+parameters: {}
+description: Native method or documented scalable adapter, with a shared TunedGNN
+  preset.
+environment:
+  ADAGLT_MASK_EPOCHS: '400'
+implementation:
+  default: native small-graph GCN
+  overrides:
+    reddit: projected-score adapter (not native AdaGLT)
+    ogbn-products: projected-score adapter (not native AdaGLT)
+    ogbn-arxiv: projected-score adapter (not native AdaGLT)
+    ogbn-proteins: projected-score adapter (not native AdaGLT)
+    pokec: projected-score adapter (not native AdaGLT)
+    coauthor-physics: projected-score adapter (not native AdaGLT)
+    questions: projected-score adapter (not native AdaGLT)
+    roman-empire: projected-score adapter (not native AdaGLT)

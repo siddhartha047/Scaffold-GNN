@@ -1,0 +1,13 @@
+kind: baseline
+runner: scripts/methods/mog/run_mog.sh
+parameters: {}
+description: Native method or documented scalable adapter, with a shared TunedGNN
+  preset.
+implementation:
+  default: native citation learner
+  overrides:
+    reddit: native learner with random-node partition adapter
+    ogbn-products: native learner with random-node partition adapter
+    ogbn-arxiv: native learner with random-node partition adapter
+    ogbn-proteins: native learner with random-node partition adapter
+    pokec: native learner with random-node partition adapter
