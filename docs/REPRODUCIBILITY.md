@@ -1,31 +1,29 @@
-# Reproducibility notes
+# Experiment protocols
 
-The cleaned runner has one shared model-preset table and one shared graph/split loader. Each run records effective settings and its exact command. Changing a sparsifier must not silently change the backbone model, training budget, seed, or split.
+All methods share the TunedGNN model presets and graph/split loader. Each run saves its effective settings and exact command in `resolved.json`.
 
-## Accuracy recipes
+## Evaluation
 
-`configs/reported_accuracy.yaml` contains imported per-dataset Scaffold-1, Scaffold-K, and Scaffold-Full settings. `--recipe` loads their recorded construction, training, and evaluation flags. See `ACCURACY.md` for coverage and source-table discrepancies. Importing settings is not a new accuracy measurement. Select configurations/checkpoints using validation data, never test accuracy. Preserve run seeds, split fingerprints, actual edge counts, checkpoint policy, refresh cadence, and union size.
+- **Scaffold-1:** one support throughout training, validation, and test.
+- **Scaffold-K:** refreshed training supports and inference on a validation-ranked support union. Report both the per-support retention and realized union size.
+- **Scaffold-Full:** sparse training with evaluation on the original graph.
 
-Scaffold-1 retains one support throughout training. Scaffold-K refreshes supports and retains a validation-ranked graph bank for union inference. Recipes retain the source checkpoint policy and refresh mode; some historical runs were synchronous. The requested per-support ratio and realized union ratio are different quantities. Sample's number of precomputation forests is independent of the number of inference supports.
+Use the [settings guide](ACCURACY.md) to select a recipe. Recipes specify checkpoint selection, refresh cadence, seed, and synchronous/asynchronous construction. For custom runs, `--include-full-eval` adds a separate full-graph result and validation-selected checkpoint. Sample's precomputation forest count is independent of its inference support count.
 
-Scaffold-Full trains on sparse supports and evaluates on the original full graph. This is the default mode for Fast, Batch, and Sample; default refresh is asynchronous with no periodic deterministic-backbone override. Use `--recipe scaffold-full` for the historical settings. For custom single/multi runs, `--include-full-eval` adds a separate validation-selected full-graph checkpoint, recorded as `view=all`, `model_policy=best-validation` in `multiview.csv`; check `status=OK` before using it. The training target ratio remains sparse. Charge full-graph validation/evaluation when reporting runtime. The `--method full` baseline trains on the full graph too.
+## Timing
 
-## Time measurements
+Separate data loading, partitioning, edge-weight computation, backbone construction, edge selection, Sample precomputation, subsequent sampling, training, and evaluation. Record whether caches and JIT kernels were warm. Keep `results/cache` for warm-start measurements; choose a fresh cache directory for cold-start measurements.
 
-Use fresh result directories for every attempt. Separate data loading, partitioning, feature-weight computation, spanning-forest construction, scoring/selection, Sample weight precomputation, subsequent sampling, training, and evaluation. Report whether caches and JIT kernels were warm. A first Sample support includes precomputation; a successive draw can reuse it. Do not compare that draw time with another method's full cold setup without labeling the distinction.
+Process wall time is saved in `status.json`; component timers are printed in `run.log`. Include full-graph evaluation and precomputation when reporting end-to-end cost. With asynchronous construction, CPU work can overlap GPU training, so summed component time can exceed elapsed wall time.
 
-The launcher records process wall time in `status.json`. Method-native timers retain their original definitions; the launcher does not relabel those timers as complete end-to-end cost. Full-size runtime values from the older environment have not been copied into this cleaned release as newly validated measurements.
+Large-graph presets can use partition or neighbor training. Equal epoch counts across full-batch, sampled, and learned-sparsifier pipelines need not imply equal optimizer steps.
 
-The default profiles preserve the source training pipelines, including partition/neighbor training for designated large datasets. Equal epoch counts do not necessarily mean equal optimizer steps or graph coverage across GraphSAGE, GraphSAINT, learned sparsifiers, and full-batch GCN.
+## Splits and edge budgets
 
-## Data and budgets
+The loader downloads public graph assets and verifies fixed split files where supplied. Cora, CiteSeer, and PubMed use TunedGNN class-balanced splits. Preserve seeds and split fingerprints when comparing methods.
 
-The shared loader downloads official/public graph assets and verifies the upstream TunedGNN fixed split files where supplied. Cora/CiteSeer/PubMed use TunedGNN class-balanced splits, not automatically the Planetoid public split. Dataset seed and run index are recorded by baseline adapters. All methods use the same loader; raw PyG/OGB download caches may reside in the configured data directory.
+A complete spanning forest on a graph with `n` nodes and `c` connected components needs `n-c` edges. Below that budget, partial-support policies cannot preserve connectivity. Spanning-forest and spanner references can have unmatched retention; report their actual edge counts. Weighted and unweighted path settings are distinct experimental choices.
 
-For disconnected graphs, a complete spanning forest contains `n-c` edges. Connectivity claims require a feasible edge budget. The source implementations retain legacy budget-fitting behavior below this floor; such runs are not complete spanning supports. Spanning-forest anchors and t-spanners can have unmatched retention and must be labeled accordingly. Learned methods and integer rounding can realize slightly different ratios; report the actual graph size.
+## Comparison implementations
 
-## Implementation boundaries
-
-The large-graph AdaGLT/Unified-LTH adapters inherited from the accuracy code are approximations; see `METHODS.md`. They must not be described as the later full-batch native runtime ports. The latter use a different protocol without validation and are not silently mixed into the accuracy runner. The imported accuracy recipes cover Scaffold; baseline defaults remain in `configs/methods/` and the shared preset table.
-
-GPU smoke tests establish that code paths execute. They do not establish statistical accuracy, scalability to every dataset, or equivalence of changed research settings. Use the validation record for precisely what was tested.
+[METHODS.md](METHODS.md) describes the native methods and larger-graph adapters. In particular, the large-graph AdaGLT and Unified-LTH adapters differ from their native mask-learning algorithms. Keep these implementation choices explicit when reporting results.

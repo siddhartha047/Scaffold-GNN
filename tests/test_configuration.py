@@ -58,11 +58,33 @@ def test_forest_aliases(forest,legacy):
     assert canonical_support_name(forest)==canonical_support_name(legacy)
 
 
-def test_public_paths_are_repository_relative():
+def test_public_paths_are_repository_relative(monkeypatch):
     from scaffold_gnn.runtime import read_environment
+    monkeypatch.delenv('SCAFFOLD_DATA_ROOT',raising=False)
     public=read_environment('public')
     assert Path(public['data_dir'])==ROOT/'data'
     assert Path(public['results_dir'])==ROOT/'results'
+
+
+def test_public_dataset_directory_override(tmp_path,monkeypatch):
+    from scaffold_gnn.runtime import read_environment
+    monkeypatch.setenv('SCAFFOLD_DATA_ROOT',str(tmp_path))
+    config=read_environment('public')
+    assert Path(config['data_dir'])==tmp_path
+    assert Path(config['results_dir'])==ROOT/'results'
+
+
+@pytest.mark.parametrize('method',['scaffold-fast','scaffold-batch'])
+@pytest.mark.parametrize('backbone,backend',[('fast-randsf','tensor'),('minsf','tensor'),
+    ('randspt','networkx'),('glsf','networkx'),('llsf','networkx'),('slsf','networkx')])
+def test_backbones_select_compatible_backend(method,backbone,backend):
+    from scaffold_gnn.accuracy import core_parser
+    args=parser().parse_args(['--method',method,'--backbone',backbone,'--dry-run'])
+    conf,spec,preset=resolve(args)
+    command=build_command(args,conf,spec,preset,ROOT/'results'/'test-backbone')
+    parsed=core_parser().parse_args(command[4:])
+    assert parsed.scaffold_backend==backend
+    assert parsed.joint_init_support==backbone
 
 
 def test_multiview_command_satisfies_core_protocol():
@@ -108,7 +130,7 @@ def test_reported_recipes_preserve_core_settings_and_cora_scope():
     from scaffold_gnn.utils.scaffold_multiview import validate_final_views
     recipes=yaml.safe_load((ROOT/'configs/reported_accuracy.yaml').read_text())
     datasets=yaml.safe_load((ROOT/'configs/datasets.yaml').read_text())
-    assert recipes['status']=='source_settings_imported_not_rerun'
+    assert recipes['status']=='configured'
     assert recipes['settings'].keys()==datasets.keys()
     assert set(recipes['settings']['cora'])=={'scaffold_1'}
     assert set(recipes['settings']['cora']['scaffold_1'])=={'scaffold_greedy','scaffold_heap'}
