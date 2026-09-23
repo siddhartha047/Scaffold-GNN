@@ -30,6 +30,10 @@ python run.py --method scaffold-fast --dataset cora --ratio 0.7 \
 python run.py --method scaffold-sample --dataset cora --ratio 0.7 \
   --mode multi --views 5 --refresh-every 20 --sample-forests 5
 
+# Also evaluate the original full graph after sparse training (Scaffold-Full).
+python run.py --method scaffold-fast --dataset cora --ratio 0.7 \
+  --include-full-eval
+
 # Same dataset's shared GCN settings for the full-graph comparator.
 python run.py --method full --dataset cora
 
@@ -38,6 +42,8 @@ python run.py --method scaffold-batch --dataset ogbn-products --dry-run
 ```
 
 `--epochs`, `--runs`, and `--seed` override the shared defaults. Without `--ratio`, the dataset's target ratio in `configs/datasets.yaml` is used. Ratios count retained undirected edges; a union of supports can exceed the per-support budget. A complete spanning forest needs at least `n − c` edges for `c` connected components. Below that budget, legacy partial-support policies cannot preserve connectivity.
+
+`--include-full-eval` works with Fast, Batch, and Sample in either training mode. It adds **Scaffold-Full**, retaining the sparse training ratio and evaluating the original full graph. Full-graph validation selects its checkpoint at the configured evaluation cadence; the final result is the `view=all` row in `multiview.csv`. This adds evaluation work. The `full` comparator trains and evaluates on the full graph.
 
 ## Choose an algorithm
 

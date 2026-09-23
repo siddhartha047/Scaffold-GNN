@@ -33,6 +33,8 @@ def parser():
     p.add_argument('--edge-weights', choices=['uniform','cosine','euclidean','dot'], default='uniform')
     p.add_argument('--weighted-paths', action='store_true', help='use weighted supporting-path lengths')
     p.add_argument('--mode', choices=['single', 'multi'], default='single')
+    p.add_argument('--include-full-eval', action='store_true',
+                   help='also report Scaffold-Full: sparse training, original full-graph evaluation (Fast/Batch/Sample)')
     p.add_argument('--views', type=int, choices=[1, 3, 5, 10], default=5)
     p.add_argument('--refresh-every', type=int, default=20)
     p.add_argument('--synchronous', action='store_true', help='wait for each scheduled support refresh')
@@ -87,11 +89,14 @@ def resolve(args):
         raise ValueError('epochs and runs must be positive')
     config['training'] = asdict(preset)
     config['mode'] = args.mode
+    config['include_full_eval'] = args.include_full_eval
     config['smoke'] = args.smoke
     if args.mode == 'multi' and method['kind'] != 'scaffold':
         raise ValueError('--mode multi applies only to Scaffold')
     if args.mode == 'multi' and args.method not in {'scaffold-fast','scaffold-batch','scaffold-sample'}:
         raise ValueError('The final union-inference runner supports Fast, Batch, and Sample.')
+    if args.include_full_eval and args.method not in {'scaffold-fast','scaffold-batch','scaffold-sample'}:
+        raise ValueError('--include-full-eval supports Scaffold Fast, Batch, and Sample.')
     if args.refresh_every < 1 or args.sample_forests < 1:
         raise ValueError('refresh-every and sample-forests must be positive')
     if args.batch_size < 1 or not 1 <= args.add_per_round <= args.batch_size:
@@ -160,8 +165,13 @@ def build_command(args, config, method, preset, output):
                     c.append('--scaffold_weighted_paths')
                 if args.method=='scaffold-sample':
                     flags['scaffold_sample_tree_count']=args.sample_forests
-                if args.mode=='multi':
-                    flags.update(scaffold_final_eval_views=sorted({1,args.views}), scaffold_final_graph_bank_size=args.views,
+                if args.mode=='multi' or args.include_full_eval:
+                    views = sorted({1,args.views}) if args.mode=='multi' else [1]
+                    if args.include_full_eval:
+                        views.append('all')
+                        c.append('--scaffold_final_best_full_checkpoint')
+                    flags.update(scaffold_final_eval_views=views,
+                                 scaffold_final_graph_bank_size=args.views if args.mode=='multi' else 1,
                                  scaffold_final_eval_csv=str(output/'multiview.csv'),
                                  eval_graph='sparse', scaffold_eval_ensemble_source='best', scaffold_eval_ensemble_size=1)
                     c.append('--scaffold_final_report_best_checkpoint')
