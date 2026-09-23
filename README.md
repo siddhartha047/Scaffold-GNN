@@ -107,10 +107,4 @@ Feature-derived weights can be selected with `--edge-weights cosine` (also `eucl
 <img src="docs/images/quantities.png" width="850" alt="Supporting paths represent omitted edges; dilation measures path length and congestion measures shared edges or internal vertices.">
 </details>
 
-## Anonymous submission export
-
-```bash
-python scripts/export_anonymous.py --output dist/scaffold-anonymous.zip
-```
-
-The archive excludes Git history/remotes, local path overrides, datasets, results, caches, and compiled artifacts. It retains third-party license notices. See [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md) for attribution and [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md) before preparing accuracy or runtime comparisons.
+See [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md) for experiment protocols and [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md) for attribution.

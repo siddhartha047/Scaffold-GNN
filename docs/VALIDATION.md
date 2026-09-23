@@ -6,7 +6,7 @@ Checked on 2026-09-23. These are execution and integration checks, not a full ac
 
 | Check | Result |
 |---|---|
-| Unit/integration tests, including spectral artifact tests | 36 passed |
+| Unit/integration tests, including spectral artifact tests | 35 passed |
 | Shared configuration matrix | All 24 methods × 19 paper datasets resolve; core argument lists parse |
 | GPU smoke matrix | All 24 method entry points completed one tiny Karate training run |
 | Cora GPU smoke runs | Full Graph; Fast, Batch, Sample; DSpar, MoG, AdaGLT, Unified-LTH; Tuned GraphSAGE; Tuned GraphSAINT-RW passed |
@@ -18,7 +18,6 @@ Checked on 2026-09-23. These are execution and integration checks, not a full ac
 | Large-graph C++ backend | Built with CMake; JL-PCG completed a small graph with 16 projections and two threads |
 | Larger-graph MoG module integration | Both Arxiv and Proteins native learner modules loaded locally and passed tiny forward/backward checks |
 | Packaging | Built a wheel and ran an isolated installed-wheel Fast training smoke test |
-| Anonymous archive | Verified exclusions and required source files; extracted the archive separately and completed a CPU Fast training run |
 
 GPU checks used two existing A100 80GB sessions, each constrained to its assigned visible GPU and 32-core CPU affinity. No Slurm submission or new allocation was requested. Tiny tests used two workers; explicit parallel Cora tests used four. Original research source files were left in place.
 
@@ -43,7 +42,7 @@ python RelatedMethods/Spectral/run.py --dataset karate --threads 2 \
 python run.py --method spectral --dataset karate --smoke
 ```
 
-Raw smoke outputs remain in the local ignored `results/` directory. The anonymous archive contains this summary, not machine paths, logs, checkpoints, or results.
+Raw smoke outputs remain in the local ignored `results/` directory.
 
 ## Limits
 

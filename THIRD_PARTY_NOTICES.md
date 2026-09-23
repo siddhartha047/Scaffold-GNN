@@ -13,6 +13,6 @@ This distribution preserves comparison implementations as separate folders. Adap
 | `RelatedMethods/TunedGNN-GraphSAINT-RW` | GraphSAINT integration with the TunedGNN comparison model | TunedGNN attribution above |
 | `RelatedMethods/Spectral` | Effective-resistance precomputation integration | Julia/Python/C++ dependencies retain their own licenses |
 
-Original copyright/license notices are retained wherever supplied. This cleanup does not grant a blanket license over third-party code or replace those terms. The anonymous export removes experimenter identifiers and Git metadata while retaining third-party attribution.
+Original copyright/license notices are retained wherever supplied. This cleanup does not grant a blanket license over third-party code or replace those terms.
 
 `docs/source_manifest.json` records hashes of source files at import time. Destination files were subsequently adapted; those hashes identify the imported snapshots, not checksums of the final transformed files. A destination entry may refer to a renamed or pruned source file.
