@@ -4,7 +4,7 @@
 
 <p align="center"><img src="docs/images/pipeline.png" width="850" alt="Scaffold-1 reuses one sparse support; Scaffold-K trains on refreshed supports and infers on their union."></p>
 
-This repository contains the research implementation, shared TunedGNN settings, and the comparison methods in `RelatedMethods/`. The reported-accuracy recipe is reserved in [`configs/reported_accuracy.yaml`](configs/reported_accuracy.yaml) and is **not yet finalized**. Smoke tests check execution, not reproduction of paper accuracy.
+This repository contains the research implementation, shared TunedGNN settings, and the comparison methods in `RelatedMethods/`. Per-dataset accuracy recipes are in [`configs/reported_accuracy.yaml`](configs/reported_accuracy.yaml); see [recipe provenance and commands](docs/ACCURACY.md). Settings are imported from experiment records; full-size accuracy has not been rerun in this cleaned repository.
 
 ## Install
 
@@ -14,7 +14,7 @@ Use Python 3.11 or 3.12 on Linux. Install a CUDA-compatible [PyTorch](https://py
 python -m pip install -e .
 python scripts/check_environment.py
 python run.py --list
-python run.py --method scaffold-fast --dataset karate --smoke --workers 2
+python run.py --dataset karate --smoke --workers 2
 ```
 
 The runner selects the visible CUDA device with the most free memory. For a CPU-only test, add `--device cpu`. It never requests a Slurm allocation. `--workers auto` respects CPU affinity and `SLURM_CPUS_PER_TASK`; explicit worker counts are capped at the available allocation. Use the same Python environment for the launcher and its subprocesses.
@@ -22,17 +22,19 @@ The runner selects the visible CUDA device with the most free memory. For a CPU-
 ## Run an experiment
 
 ```bash
-# One support, reused throughout training and inference (Scaffold-1).
-python run.py --method scaffold-fast --dataset cora --ratio 0.7 \
-  --backbone fast-randsf --workers auto
+# Default: Scaffold-Sample, asynchronous refresh, full-graph evaluation.
+python run.py --dataset citeseer --workers auto
 
-# Refreshed supports; validation-selected bank; one forward pass on the union.
-python run.py --method scaffold-sample --dataset cora --ratio 0.7 \
-  --mode multi --views 5 --refresh-every 20 --sample-forests 5
+# Recorded single-support and K-support settings (Sample unless specified).
+python run.py --dataset citeseer --recipe scaffold-1
+python run.py --dataset citeseer --recipe scaffold-k
 
-# Also evaluate the original full graph after sparse training (Scaffold-Full).
-python run.py --method scaffold-fast --dataset cora --ratio 0.7 \
-  --include-full-eval
+# Recorded full-evaluation settings; Fast and Batch have recipes too.
+python run.py --dataset citeseer --method scaffold-fast --recipe scaffold-full
+
+# Cora reference settings: one fixed support.
+python run.py --dataset cora --method scaffold-greedy --recipe scaffold-1
+python run.py --dataset cora --method scaffold-heap --recipe scaffold-1
 
 # Same dataset's shared GCN settings for the full-graph comparator.
 python run.py --method full --dataset cora
@@ -41,9 +43,9 @@ python run.py --method full --dataset cora
 python run.py --method scaffold-batch --dataset ogbn-products --dry-run
 ```
 
-`--epochs`, `--runs`, and `--seed` override the shared defaults. Without `--ratio`, the dataset's target ratio in `configs/datasets.yaml` is used. Ratios count retained undirected edges; a union of supports can exceed the per-support budget. A complete spanning forest needs at least `n − c` edges for `c` connected components. Below that budget, legacy partial-support policies cannot preserve connectivity.
+`--recipe` selects the recorded settings, including the backbone, objective, seed, training schedule, and evaluation policy. Recipes preserve historical synchronous/asynchronous behavior. Without a recipe, Fast, Batch, and Sample default to asynchronous refresh every epoch and full-graph evaluation; use `--mode single` for one fixed support or `--mode multi --views 5` for union inference. `--synchronous` waits for each refresh. The no-argument example dataset is CiteSeer.
 
-`--include-full-eval` works with Fast, Batch, and Sample in either training mode. It adds **Scaffold-Full**, retaining the sparse training ratio and evaluating the original full graph. Full-graph validation selects its checkpoint at the configured evaluation cadence; the final result is the `view=all` row in `multiview.csv`. This adds evaluation work. The `full` comparator trains and evaluates on the full graph.
+`--epochs`, `--runs`, `--seed`, and `--ratio` override the selected settings. A union can exceed the per-support edge budget; a complete spanning forest needs at least `n − c` edges for `c` components. For a custom single/multi run, `--include-full-eval` additionally records validation-selected full-graph inference in `multiview.csv`. The `full` comparator trains and evaluates on the full graph.
 
 ## Choose an algorithm
 

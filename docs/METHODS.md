@@ -1,6 +1,6 @@
 # Methods and settings
 
-Run commands from the repository root after installing the environment. Every method reads the dataset's model/training preset from `configs/tunedgnn_presets.py`; per-method YAML files only add method-specific settings. `--dry-run` prints the resolved configuration. `--smoke` reduces training/search stages and is not an accuracy result.
+Run commands from the repository root after installing the environment. Every method reads the dataset's model/training preset from `configs/tunedgnn_presets.py`; per-method YAML files add method-specific settings. Scaffold's optional `--recipe` overlays the recorded dataset-specific settings in `configs/reported_accuracy.yaml`; see [ACCURACY.md](ACCURACY.md). `--dry-run` prints the resolved configuration. `--smoke` reduces training/search stages and is not an accuracy result.
 
 ## Comparison methods
 
@@ -41,7 +41,7 @@ The supplied wrappers preserve the source accuracy code's dispatch, rather than 
 - **Tuned GraphSAGE:** reuses the shared per-dataset GraphSAGE preset. It is the TunedGNN implementation, not the unused plain GraphSAGE wrapper.
 - **Tuned GraphSAINT-RW:** uses shared GCN hyperparameters. Walk length, sampler steps, and coverage are set in its wrapper and can be overridden using the documented `BASELINE_GRAPHSAINT_*` environment variables. The normalized loss uses the source's `train_mean` convention. Sampled epochs can contain multiple optimizer steps.
 
-The later native full-batch SpMM runtime ports live in the original research experiment tree and follow an evaluation-free timing protocol. They are not used by these accuracy wrappers. This distinction must be resolved when finalizing `reported_accuracy.yaml`.
+The later native full-batch SpMM runtime ports live in the original research experiment tree and follow an evaluation-free timing protocol. They are not used by these accuracy wrappers. The imported reported-accuracy recipes cover Scaffold; comparison settings remain subject to the implementation distinctions above.
 
 ## Spectral precomputation
 

@@ -6,14 +6,17 @@ Checked on 2026-09-23. These are execution and integration checks, not a full ac
 
 | Check | Result |
 |---|---|
-| Unit/integration tests, including spectral artifact tests | 35 passed |
+| Unit/integration tests, including spectral artifact tests | 39 passed |
 | Shared configuration matrix | All 24 methods × 19 paper datasets resolve; core argument lists parse |
+| Recorded recipe matrix | All 164 imported/reference recipes resolve and preserve their recorded core flags; all three evaluation protocols pass validation |
 | GPU smoke matrix | All 24 method entry points completed one tiny Karate training run |
 | Cora GPU smoke runs | Full Graph; Fast, Batch, Sample; DSpar, MoG, AdaGLT, Unified-LTH; Tuned GraphSAGE; Tuned GraphSAINT-RW passed |
 | Parallel construction | Fast and Batch completed Cora with four partitions and four workers actually used |
 | Weighted construction | Fast-MaxSF, cosine weights, and weighted supporting paths completed a Cora GPU run |
 | Multiple-support inference | Sample refreshed synchronously for five tiny epochs; best-1 and union-3 rows both reported `OK`, with three effective supports |
 | Scaffold-Full inference | CPU Karate runs for fixed-support Fast and refreshed-support Sample completed; full-graph rows reported `OK`, validation-selected checkpoints, all 78 original edges, and the unchanged 0.7 training target (55 retained edges) |
+| Default asynchronous full evaluation | CPU Karate Sample run completed 2,000 tiny epochs with 521 completed support swaps; evaluation retained all 78 original edges while each training support used 55 |
+| Imported accuracy recipe execution | CiteSeer Sample-1 completed a one-epoch CPU smoke run with the recorded normalized-mixture weights, fixed-SF backbone, and no refresh |
 | Julia spectral path | Computed approximate effective resistances on Karate; the top-level exact-budget Spectral consumer then trained successfully on GPU |
 | Large-graph C++ backend | Built with CMake; JL-PCG completed a small graph with 16 projections and two threads |
 | Larger-graph MoG module integration | Both Arxiv and Proteins native learner modules loaded locally and passed tiny forward/backward checks |
@@ -46,4 +49,4 @@ Raw smoke outputs remain in the local ignored `results/` directory.
 
 ## Limits
 
-Full-size training and accuracy across all 19 datasets have not been rerun. The configuration matrix checks coverage and argument validity, not graph download availability or memory fit. The default asynchronous refresh path is inherited; the completed tiny multiview test used synchronous refresh to ensure three supports were constructed before training ended. The larger-graph AdaGLT/Unified-LTH accuracy adapters remain different from native learned-mask methods, as documented in `METHODS.md`. Reported-accuracy settings remain pending.
+Full-size training and accuracy across all 19 datasets have not been rerun. The configuration matrix checks coverage and argument validity, not graph download availability or memory fit. The asynchronous check is a tiny CPU execution test, not a performance measurement. The larger-graph AdaGLT/Unified-LTH accuracy adapters remain different from native learned-mask methods, as documented in `METHODS.md`. Reported Scaffold settings are imported; `ACCURACY.md` identifies configured references, missing historical full-evaluation results, and unresolved paper cells.
