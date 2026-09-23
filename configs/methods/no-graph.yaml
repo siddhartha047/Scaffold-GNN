@@ -1,0 +1,3 @@
+kind: mlp
+parameters: {}
+description: Feature-only MLP reference using the shared dataset schedule.

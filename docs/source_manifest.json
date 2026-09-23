@@ -1,0 +1,1282 @@
+[
+  {
+    "file": "scaffold_gnn/main.py",
+    "source_sha256": "e223f82753c7b01a59ac76ac4e511379fd4cca7b5284d0c11b9fbc7d6b1d7d9c"
+  },
+  {
+    "file": "scaffold_gnn/main_mlp.py",
+    "source_sha256": "be1b065223caccfeff1bd7e0e7a503a03febd14ea2d1c7be338e630909ad35db"
+  },
+  {
+    "file": "scaffold_gnn/parse.py",
+    "source_sha256": "3088e6f27eefd875b77f0fad8103bc08a4e9e66c028e0bcd2803c77b5cebbc87"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/random_spanning_tree.py",
+    "source_sha256": "3b8a2647cd03bc93a587a1b6ea87e691ed4bee76ec161d8ad6865245051498f4"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/scan.py",
+    "source_sha256": "9de45fd084ead4cdddb69d3956ff0f077cd5b69106035744bc7ea1b398fb0b72"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/spanner_greedy.py",
+    "source_sha256": "1d1ef267c386cc9d0a1a85d44a764007fcf50225aa871bfa08237fac268b2356"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/support_graph_cpp.py",
+    "source_sha256": "6f656c33d73d1eaa2607305ed32ec84afb319c21069bdbcfe3babd643792c388"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/las_vegas_spanner.py",
+    "source_sha256": "687242eb84f109eefc359f79cf3be78d67902624a509fd7487c3ed7931b5fa21"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/clustered_joint_dilation_congestion.py",
+    "source_sha256": "f1e7a71c81215cc05e87c2e3b7c4159f3c54c83599ae87c3d79a30ee4d3eb02a"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/random_dropout.py",
+    "source_sha256": "2f59d9f9eeedeee228f4666ad348194c61c8b3783407d054ba26c7ba06c95718"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/support_graph.py",
+    "source_sha256": "71b370a0ba0dc014eeee98e508c676eab5e58985130d90472da29200cfdc5300"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/k_rand_neighbors.py",
+    "source_sha256": "804c2250517f4c0401d570dab45d6225e572acc71d8b0eb0b97144458efb8ff1"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/random_refresh.py",
+    "source_sha256": "e5672fd245993c5dd854fe0d81e474375f3e0d921fc4b156f99e172b4f9b262c"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/mst.py",
+    "source_sha256": "83826a6dad6e4569ff95c00db92847cd377146f3fad375d6af3169e5ce83cf30"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/scalable_low_stretch_tree.py",
+    "source_sha256": "d9d8d76ce7046516e83b98360aaacea03c387713f6b0b0361a2ef64ab04c842d"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/er.py",
+    "source_sha256": "54d460ad697979143e4a07d6378b4163b2c98e6ecc6a1e119324b9b6f8d05dea"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/cut_sparsifier.py",
+    "source_sha256": "ef9f40f54892834995b091d10599aff84e3d7f636a5b685eeadd644d600bd363"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/local_degree.py",
+    "source_sha256": "ac62ca6596a617d48056ffa04736d6ec4f1e0d74b918b6129c79570e48e6aec0"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/l_sim.py",
+    "source_sha256": "230acb198a2438f9b2dd05443b79ce8815a4f1496fb062e9e9c6549a1cdd2a7b"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/max_spanning_tree.py",
+    "source_sha256": "a41e3561dfae3ad810b151b0833d769ecb8b1d747f3c091067d750a2c1c550ea"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/fast_maxst.py",
+    "source_sha256": "c1ac0721004fdd6d25e8c73a69bd49eb3fe471dd2d60336e48e7f3dcce6e20c6"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/local_search_low_stretch_tree.py",
+    "source_sha256": "6117c69a94c360ac4a2b1f84b3e873e4812cd53cc763deb2e2111efbeaa366da"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/low_stretch_tree.py",
+    "source_sha256": "8ef2a8028f0c86a2a62ea8b47fd881ee476ecb1be3d3c5a1fee3499e6a1b5655"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/l_spar.py",
+    "source_sha256": "2e84419c694bd41de7b1599be9c711326fdefc1923d31928a14374f5a71a57b2"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/spanner_halperin.py",
+    "source_sha256": "2d98bfb97a6772554652d6cb97bbf28ca042d9ef8627a4f04bb5ca09a1e4a9ff"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/forest_fire.py",
+    "source_sha256": "20c1b4210aa64aa1d360626bec560426457d4c654d990511687d0085c6486f66"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/joint_dilation_congestion.py",
+    "source_sha256": "9164b0bf57cfb3ccaaf873e8584f8233600f7e0722e5e0d045448331bab3a9b6"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/base.py",
+    "source_sha256": "9fd4957dd6847b083502e99a40d00a89ffc5f789c8c086e1ce3dd6c302345ca8"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/support_graph_dilation.py",
+    "source_sha256": "cfc72ead2a38b26a9a52b4bfe8d5f4a345e356cbd68868bbabd123beeeb56a52"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/effective_resistance.py",
+    "source_sha256": "d5e71cdbf0035e7acdcd5b19a51131fd54de118cbdcac046b997e679aa1ff701"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/g_spar.py",
+    "source_sha256": "5a8eeab5ae9c91ab425f0cd48a55071e1b200935cdcf04ca51346b6bab843c30"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/__init__.py",
+    "source_sha256": "808226a13df157d0e4af08d2664ed95d7fcc5b3992c42ddcb26a315a651d4f64"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/full_graph.py",
+    "source_sha256": "322fec12343d28f5bf6bf41df8b23a9b24f344a847cfdf8aae576aedaedd21fe"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/support_sequence.py",
+    "source_sha256": "d426a606d99daf026eae08287978fe95cf30640b1aed2531b890b9b2ca70ebdf"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/rank_degree.py",
+    "source_sha256": "9b4bf18ea9c56047022071c2d6366b2713961c04da44c62be3d6ea8c952b5745"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/fixed_support.py",
+    "source_sha256": "3188ad3b8f533c44e8db498cff337d72e484995c2fd09385764f07ddba763f8c"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/random_shortest_path_tree.py",
+    "source_sha256": "71b8c69479e1cf9886e4b527946b7dbcc1d3d7cf3acc9e1fbc24e377796a68dd"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/scaffold/scaffold_greedy.py",
+    "source_sha256": "b8e4eb5c39a1f07e548ada79a8e6d437f5993a3a56c7c56d3fca1309d2f4c3e3"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/scaffold/scaffold_batch_config.json",
+    "source_sha256": "b74f8fe7554af0a24912f9f14d02218ae79f9dae50de02c3b818457ec43e7b60"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/scaffold/budgeted_union.py",
+    "source_sha256": "86c19d6ccee20bb65c581da5e4a1474473288b1629e37ce95c4b7f59eacee64f"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/scaffold/scaffold_heap_config.json",
+    "source_sha256": "afe8d5eafc7ddbec2af028634451539f82784f373d51cf1acb8bacf79e44ec2e"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/scaffold/common.py",
+    "source_sha256": "bb751630e2d38f7034372ff0cc72a6bdfe8ce4a4065bfe73dfe8469f739a26f3"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/scaffold/scaffold_sample_config.json",
+    "source_sha256": "bd1ad93fdb22b6f7bdbdaf1a2eefa252e8f635e5714fc2de6e838ce7bc0546d8"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/scaffold/sampling.py",
+    "source_sha256": "1f6c5bcb1598f318d6c01a132c23077cb545d6001f4763ec4b6dd1abf7baf997"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/scaffold/scaffold_heap.py",
+    "source_sha256": "a193ea5d15ec9863f0e96742a44df00f2ae6f1560fe9099a247370d1b0ddbc3f"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/scaffold/path_backend.py",
+    "source_sha256": "cda32e599073539fc4a984f6e40c82a7d07ab1058ea220733a79d198859a18a7"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/scaffold/scaffold_fast.py",
+    "source_sha256": "5cea6e80e24f85013f87e83ba5f1ab3e6239d0c00f0411c26d4407f8ea41cba4"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/scaffold/tunedgnn_splits.py",
+    "source_sha256": "a06c1798b4021cafe6221c30432f6f209c16be9a7b59953ef2a1c0f4d479e7a0"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/scaffold/scaffold_fast_config.json",
+    "source_sha256": "22281da0c5f9a292ba59d25497ce8db4098f1345f8423d8137e3dbb7d444319f"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/scaffold/scaffold_batch.py",
+    "source_sha256": "8e0939ddbe35e3bea414ddbede46d6828dc8193cae6cf6c4317408ca3da69967"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/scaffold/tensor_fast.py",
+    "source_sha256": "2c849639c2ce80de099ebabf9fe8253ac52e72cf4dc2162a320788676510238c"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/scaffold/tree_score.py",
+    "source_sha256": "b9fb382e01a950298a69cb8c99e0ef3e61846dd7f3d20e8176bd7ca6a8b7113e"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/scaffold/spanning_tree.py",
+    "source_sha256": "7adf72826439b81ccec95c77f3629a72d3722399b40845e6774cacf6db5ce7c8"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/scaffold/parallel_utils.py",
+    "source_sha256": "50dc8311fde0f9691c37347638f1c58adee5b08660ebe50ce5a1dda7344cb348"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/scaffold/neighborhood_balanced.py",
+    "source_sha256": "58c592f291dcaec71e8e1cd1acf2f4b7f0ef63eee8e1bb507e1f6ac2361c0311"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/scaffold/scaffold_sample.py",
+    "source_sha256": "9367ccba5beaea3bb1e060457bb1cb17bb8e4605bcb8038516b5644c357d5a27"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/scaffold/sample_weights.py",
+    "source_sha256": "3c253f677bb54ea949b8ab2399573f7014f1e67a2ce7d156ae7c4b752ee692e1"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/scaffold/sparsifier.py",
+    "source_sha256": "28edb0e7ddc8760d6eb11eac7bdd634adf8614bb4a9a43b71b6f7e4433681faa"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/scaffold/scaffold_greedy_config.json",
+    "source_sha256": "3266ba352292138cd2cdc424734cffad9ad5b2f21d3bca06ef14bd3f4405b82e"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/scaffold/__init__.py",
+    "source_sha256": "cf3e9d339a72bf7a8c318ecb13fc980c392c075553d13a8e6902d7c0f3186508"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/scaffold/clustering.py",
+    "source_sha256": "fd48540cad77780ebd275215f078f25eeed1e2606069e76f31beb09a9cae0b62"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/scaffold/tunedgnn_presets.py",
+    "source_sha256": "4731195524e2df5af9ecff7a18891825768f7e7c9dfef5e78665dcb77774e15b"
+  },
+  {
+    "file": "scaffold_gnn/sparsifiers/scaffold/consensus.py",
+    "source_sha256": "8060b8391500566a9d110beb6807b8c790cb6804d0fd455873bfebf7879cf9ca"
+  },
+  {
+    "file": "scaffold_gnn/models/spmm_adj.py",
+    "source_sha256": "ed261652c72b10f4cf4b6e514775577dd1563ecab03cebf75592b2b84d4903f1"
+  },
+  {
+    "file": "scaffold_gnn/models/model_products.py",
+    "source_sha256": "4d4ce767840346d3e0e9b47f9396fa4d80582dbf100227689ecbbaf0eafccc64"
+  },
+  {
+    "file": "scaffold_gnn/models/model.py",
+    "source_sha256": "1604e02317164e872a509849be5b6afc28727fe6fef24dfa1f3bd4b77c365d07"
+  },
+  {
+    "file": "scaffold_gnn/models/model_large.py",
+    "source_sha256": "5deae495441885650406736d0fbacb751e9bda102247800d1f61f7700445388a"
+  },
+  {
+    "file": "scaffold_gnn/models/model_proteins.py",
+    "source_sha256": "32af74a023c0367c1a74dec105335fec858d62096a0f04dff738cd375dc7d3fa"
+  },
+  {
+    "file": "scaffold_gnn/models/model_mlp.py",
+    "source_sha256": "a4bd2782e2d89d05e5c76f44fdfb4bce1fd28df1a342ce8e0a4b5b113f1aa704"
+  },
+  {
+    "file": "scaffold_gnn/utils/seed.py",
+    "source_sha256": "4d1ce0a97c96a2f00f31f33835f2dce227e3463a6f8d13247c55895ea809cee3"
+  },
+  {
+    "file": "scaffold_gnn/utils/scaffold_prediction_ensemble.py",
+    "source_sha256": "26d361516467bf527cdef729ad39f125fe5c2d1efb216d1b7c5efc659376af3c"
+  },
+  {
+    "file": "scaffold_gnn/utils/dataset.py",
+    "source_sha256": "8c68bb0f6bf42d5c178fb63faecd04590466f41667405e27c3c7511bd995d048"
+  },
+  {
+    "file": "scaffold_gnn/utils/logger.py",
+    "source_sha256": "83aa2d087cc71f0895d2378595720ccdff5de27d3619284622a0f30d98c5573e"
+  },
+  {
+    "file": "scaffold_gnn/utils/synthetic_graphs.py",
+    "source_sha256": "c0849deaf5de6725931c870e7a626dc78b5dfa0a10286750ad00a3b1f9d63164"
+  },
+  {
+    "file": "scaffold_gnn/utils/support_graph_analysis.py",
+    "source_sha256": "8453af3747bf29c8dcd5db32cb32a8789bb6c6f19f0fe3f1adbad37976eda80c"
+  },
+  {
+    "file": "scaffold_gnn/utils/eval.py",
+    "source_sha256": "e3d520e6a3778bb29fd6c5ebedba05631059cae16ca226a4bf5a536778430043"
+  },
+  {
+    "file": "scaffold_gnn/utils/graph_utils.py",
+    "source_sha256": "7a8b215031fa958c76f145eb361b9654bcfb0b709650b1e57fc3e7b2a152ce3d"
+  },
+  {
+    "file": "scaffold_gnn/utils/data_utils.py",
+    "source_sha256": "7a925836a8c339589081deecac15c1449cf1c60b326a6b776f9d0cea45d2c83a"
+  },
+  {
+    "file": "scaffold_gnn/utils/sparsifier_cache.py",
+    "source_sha256": "cbf076c8090be087ba976fc63ddb061261e32a81ea8434c4d60514a6cc220b4c"
+  },
+  {
+    "file": "scaffold_gnn/utils/graph_conversion.py",
+    "source_sha256": "f2ddae099f35ee71234f8c1f431468f1aa033b93e3fed7a06b81afca48e803c3"
+  },
+  {
+    "file": "scaffold_gnn/utils/defaults.py",
+    "source_sha256": "f4710d5ec29dd204ad925c88a538bfd16e71920fc6dce3e57414df17bb891080"
+  },
+  {
+    "file": "scaffold_gnn/utils/dataset_smoke.py",
+    "source_sha256": "5799e99ec20e6221c75df342a465f2cd14f0a17121118d5fdd3ec47c24f58e83"
+  },
+  {
+    "file": "scaffold_gnn/utils/scaffold_multiview.py",
+    "source_sha256": "712b72cd1433d6a135be7bd5bc715802313b73b946b3873a911d913c7787979a"
+  },
+  {
+    "file": "scaffold_gnn/utils/directory_lock.py",
+    "source_sha256": "b8d83bee1343378a68f71fb9514e78eb41079d7f0eb28744d0e1fdea7bfce213"
+  },
+  {
+    "file": "scaffold_gnn/utils/__init__.py",
+    "source_sha256": "28af4647dd9f3de7b19b1ebb1d8b0c8ce69ee773b7d831e5b290d41891d3d130"
+  },
+  {
+    "file": "scaffold_gnn/utils/support_graph_viz.py",
+    "source_sha256": "690326a5255e6ed159322c48ffff7d73462f8061fd45796f6fb0a0fb000eb311"
+  },
+  {
+    "file": "scaffold_gnn/utils/factory.py",
+    "source_sha256": "4849b41bdee41f5fa8c2594f03e95f39f846d39c0914d9462ae18ae5a01209d5"
+  },
+  {
+    "file": "scaffold_gnn/utils/scaffold_checkpoint.py",
+    "source_sha256": "da268c69de7ae016a5b41b40cffa9b12122bf52c2d8156771750e715aae4cdb6"
+  },
+  {
+    "file": "configs/tunedgnn_presets.py",
+    "source_sha256": "b92f873088cd8f89d1e348f8002a8cc1887531650912bcc043b0ea88a68a744c"
+  },
+  {
+    "file": "configs/tunedgnn_contract_env.py",
+    "source_sha256": "65a9dd050a4b1efbbd03557cdf8ffce8f47db270ed9cef7b50a91ecedcc662b7"
+  },
+  {
+    "file": "scripts/methods/scalable_sparse_node.py",
+    "source_sha256": "1328cc1051198d061ba0a81556f19edcd524079ee311fdc3fb8a4301381ba5a1"
+  },
+  {
+    "file": "scripts/methods/adaglt/run_adaglt.sh",
+    "source_sha256": "690a35c58f1936cc2ef7fe2cd720a0c9e1748dc270ca7b59e344fb413128f2c4"
+  },
+  {
+    "file": "scripts/methods/unified_lth/run_unified_lth.sh",
+    "source_sha256": "7b6ea8d5358611389b25eaa626081acfdbea2dade15f365b340e815dce5e8c14"
+  },
+  {
+    "file": "scripts/methods/mog/run_mog.sh",
+    "source_sha256": "cddc0810a36822cd4f732f013f015e5e655a185165c8992035bec0e52240835b"
+  },
+  {
+    "file": "scripts/methods/tunedgnn_graphsaint/run_tunedgnn_graphsaint.sh",
+    "source_sha256": "cd8996f00fc0298f15426f22dc01edb9dc9856302c4b102b37ba990c859281fa"
+  },
+  {
+    "file": "scripts/methods/tunedgnn/run_tunedgnn.sh",
+    "source_sha256": "efe02cff2051c0088b53bbc60fefee8ffe8ce323a5f7f36b489177a41db76f41"
+  },
+  {
+    "file": "scripts/methods/tunedgnn/run_tunedgnn_graphsage.sh",
+    "source_sha256": "ce148cd5903a374887a5611cf250f04728dc5c55a9e5086fa1b7886282db0b67"
+  },
+  {
+    "file": "scripts/methods/dspar/run_dspar.sh",
+    "source_sha256": "37e539d5f9d21acbee4aa7c9278f1eca8120f3b2409f46c1683fb04512208522"
+  },
+  {
+    "file": "scripts/common/baseline_wrapper_lib.sh",
+    "source_sha256": "5337aa8ac67027d4c286518edd62ba33cc5a6afc112ded15e47a1930b989378b"
+  },
+  {
+    "file": "scripts/common/baseline_dataset_bridge.py",
+    "source_sha256": "2879fc810f4919bae14f6766f940af5f4c7f6864584c448392f152dbb0b649c7"
+  },
+  {
+    "file": "scripts/common/baseline_result_utils.py",
+    "source_sha256": "7302112bcc6e25f54f37b80b716f7986bbe1b061fab1f84d7b214fe0b7820f88"
+  },
+  {
+    "file": "scripts/common/smoke_method_dataset_load.py",
+    "source_sha256": "49d9c4590db48a15c514abb88ef2fc831b4713ef64f0c23cede311333720a31d"
+  },
+  {
+    "file": "scripts/common/__init__.py",
+    "source_sha256": "bc24b07b996b7f5890e2ada8dd45c871b70f512c5c2a0ba7b0bc2247bb1376db"
+  },
+  {
+    "file": "scaffold_gnn/data/datasets.py",
+    "source_sha256": "7a65af130a07d578fa96d4569498d9eba44fb31d9da96ec51d47525c80813bdb"
+  },
+  {
+    "file": "scaffold_gnn/data/connector.py",
+    "source_sha256": "854f3c364a2e9962e0bd7826f1ddc98ffe6aff1040894dc7d55965bba32879a9"
+  },
+  {
+    "file": "scaffold_gnn/data/__init__.py",
+    "source_sha256": "2d1c1da61a432c382809f6b549d2a1f311c356bab1aa79d436ba7bb64ac8a6b0"
+  },
+  {
+    "file": "scaffold_gnn/data/split_utils.py",
+    "source_sha256": "77eb5616666efbc34282ce4c0f48cee8cbfc70439e51d213d447544c3c3c77e4"
+  },
+  {
+    "file": "RelatedMethods/tunedGNN-main/LICENSE",
+    "source_sha256": "64f98d7d422eed53d62251f3eb0f73cea5a53c5f6f7dc337c8a77d83feb34d1c"
+  },
+  {
+    "file": "RelatedMethods/tunedGNN-main/medium_graph/dataset.py",
+    "source_sha256": "9d25e937f437f4ba00694affba6c1a32e3b62698ea271c11bf529e470acbfef7"
+  },
+  {
+    "file": "RelatedMethods/tunedGNN-main/medium_graph/logger.py",
+    "source_sha256": "1f7e3222ccdd2180f47db2a60f88ce5e0327f5bbf37b0a2ecf752cc62b4a69a6"
+  },
+  {
+    "file": "RelatedMethods/tunedGNN-main/medium_graph/model.py",
+    "source_sha256": "2176565ef3977702e376fde0f255d0669af0ee530822e29eaf2c9f2827847e11"
+  },
+  {
+    "file": "RelatedMethods/tunedGNN-main/medium_graph/eval.py",
+    "source_sha256": "5eb68cb364548ca1e503c1721ae71e90549380018b94ba6fb28e5bff9224d704"
+  },
+  {
+    "file": "RelatedMethods/tunedGNN-main/medium_graph/parse.py",
+    "source_sha256": "98467c1266b99338efbb02d196eed708acc34322d4d4a6bdc51e3a0abda17bad"
+  },
+  {
+    "file": "RelatedMethods/tunedGNN-main/medium_graph/main.py",
+    "source_sha256": "e9a9d1d2424017d0b6ee16fdb3ba5bdb53d13554911a0e84148ce5aae2f63297"
+  },
+  {
+    "file": "RelatedMethods/tunedGNN-main/medium_graph/data_utils.py",
+    "source_sha256": "77eb5616666efbc34282ce4c0f48cee8cbfc70439e51d213d447544c3c3c77e4"
+  },
+  {
+    "file": "RelatedMethods/tunedGNN-main/large_graph/dataset.py",
+    "source_sha256": "d370e2d4b921e2093a438805c014deaf7cc2150b19c9f806345b1624e32c03ba"
+  },
+  {
+    "file": "RelatedMethods/tunedGNN-main/large_graph/logger.py",
+    "source_sha256": "edbcf557366ebe5be58204d83b79e28006969902ad056e409b58d872dd68ece0"
+  },
+  {
+    "file": "RelatedMethods/tunedGNN-main/large_graph/eval.py",
+    "source_sha256": "c60fd35cae651a4bb1e96e958c5beb45fbd053133d6bbebf0f1109f4f9fb2895"
+  },
+  {
+    "file": "RelatedMethods/tunedGNN-main/large_graph/product.py",
+    "source_sha256": "91a92b1569fdccb1990e8e51fa9b980bacc1f6d135d712dcd16e9668a47d445c"
+  },
+  {
+    "file": "RelatedMethods/tunedGNN-main/large_graph/models.py",
+    "source_sha256": "d2e07d262067a96a4bb09d1a8436e261773f6729fb940e4e584ff3461e8e4afa"
+  },
+  {
+    "file": "RelatedMethods/tunedGNN-main/large_graph/protein.py",
+    "source_sha256": "ca38f55a662148c3059c0045eb9112314344e87db2f4efc870600579ab9a7e61"
+  },
+  {
+    "file": "RelatedMethods/tunedGNN-main/large_graph/main-batch.py",
+    "source_sha256": "4d32a4f1ce883f31ad79b5a5208f6e28f7416faeb411c0be45a9faaf8a665b20"
+  },
+  {
+    "file": "RelatedMethods/tunedGNN-main/large_graph/data_utils.py",
+    "source_sha256": "869ee2c0f82dbf2bda5eb21bcf846607aec1abeae5c613d62bd1c98b64dd69ca"
+  },
+  {
+    "file": "RelatedMethods/tunedGNN-main/large_graph/main-arxiv.py",
+    "source_sha256": "68e59198be22905539194c0a31a4a0daa35a397c6183f36ac3f1478e0e9572b3"
+  },
+  {
+    "file": "RelatedMethods/tunedGNN-main/large_graph/lg_parse.py",
+    "source_sha256": "f798a9df00b43edcebb4c1bb84719570be2444f31448430f728289fec8b64da6"
+  },
+  {
+    "file": "RelatedMethods/tunedGNN-main/large_graph/lg_model.py",
+    "source_sha256": "3bde98a6e281e72f226df9056ad6cca5f5ebb7a4203268079831d885e167be63"
+  },
+  {
+    "file": "RelatedMethods/AdaGLT-main/Ada_gcn/layers.py",
+    "source_sha256": "7656ad0739175196cd8113e199b2bbd199a20043abfb0825067355f3f0076cf2"
+  },
+  {
+    "file": "RelatedMethods/AdaGLT-main/Ada_gcn/normalization.py",
+    "source_sha256": "edaf0be3de06b06f98dc82d29b1057363482f081d64025edc0dd17dcaefd9df5"
+  },
+  {
+    "file": "RelatedMethods/AdaGLT-main/Ada_gcn/args.py",
+    "source_sha256": "0c3aa78cd67b23bf27291de01b897d7ae36b92a612950993d48e2c8aebcde135"
+  },
+  {
+    "file": "RelatedMethods/AdaGLT-main/Ada_gcn/main.py",
+    "source_sha256": "19932cd80ef030749be302223e79a7ce591ab72c46e4c20fcaffc0b42fe8cff2"
+  },
+  {
+    "file": "RelatedMethods/AdaGLT-main/Ada_gcn/net.py",
+    "source_sha256": "f1eeb9f944dd3c93bf41924c2f1b3b80db96c265d3a158f159b7a70727b134f6"
+  },
+  {
+    "file": "RelatedMethods/AdaGLT-main/Ada_gcn/pruning.py",
+    "source_sha256": "df3c5949e5a81a484a81c2261d3a2faa7b3bbe067e9cda114166b1ce1e16a0bf"
+  },
+  {
+    "file": "RelatedMethods/AdaGLT-main/Ada_gcn/utils.py",
+    "source_sha256": "a061452205b90b60e1324d6b8fbbe3abdbf78737c829368745605f0b32df2d31"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/logger.py",
+    "source_sha256": "27cec54ea915e7b4bd6998d4208a9b38bd7e3cccaf21dda07d8adc8fd6dafcf9"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/cal_graph_eigen_stats.py",
+    "source_sha256": "b9980cd957d95d56de8163880e8d25c5d13f040e474a4f59c87225c1afec3d81"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/__init__.py",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/utils.py",
+    "source_sha256": "a9f768b19a3e3b62fb50f33fd133bc5ec89a99af4d98b4be0f4ed034a3fd5842"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/data.py",
+    "source_sha256": "e8d96070646dc715d1b48b144478520d0de9a6b59af5470789075b705d402fe7"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/src/setup.py",
+    "source_sha256": "c48b982200a39f662c69d0125cd57ca29b13607fe14af5c1459c3174f1fd2db5"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/tests/test_large_weighted_sampling.py",
+    "source_sha256": "75cebdd1178eb28fd374c1cfd3559c0e3fb0779baf2ebb24ac167b4f5e9efd8b"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/arxiv/__init__.py",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/arxiv/train_full_batch.py",
+    "source_sha256": "d43c7c4bf9f12660be690f5920e446d442e533bd75ced01d51178946ca78e1d9"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/arxiv/train_mini_batch.py",
+    "source_sha256": "29eede200320bea4f95c8161c651de40c23fe73a712ad439157384cd1261915f"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/products/train_full_batch.py",
+    "source_sha256": "07ad01b5bd5d852f3e2ed8ea7fd74bceebb013f6e0d46b471220e3501a8a0673"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/products/train_mini_batch.py",
+    "source_sha256": "248399141d67412a796449743a5bbbe96f014a36b44b46484124948b235465ee"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/non_ogb_datasets/train_full_batch.py",
+    "source_sha256": "c47abbe952f68e749f0f321ff6dc806e0e9029406c9e8fbc4c896727e5e7c809"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/non_ogb_datasets/train_mini_batch.py",
+    "source_sha256": "73d9580bff980e4f944d494dbb62931f5a9e369e21e7384ff2bc271d527c631e"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/proteins/train_full_batch.py",
+    "source_sha256": "880f8f54b2cddd74a6999f91e70f7d10c231b16167b4c2d60193b249727c80a2"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/proteins/train_mini_batch.py",
+    "source_sha256": "cb8c14f15703211b8c459a0bbcc9fe48a05d2da688ad25efce5ff189ff7c8a74"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/models/gat.py",
+    "source_sha256": "1b0fdd8c67ff7a0eb6b41aa4ea66553ed04df6576da7dce1c61fc62d5ee54b01"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/models/sage.py",
+    "source_sha256": "11c5c2e9c1cf03c837f6a26e17005412b49af617c163ba2fa7c11baef8612fc0"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/models/gcn.py",
+    "source_sha256": "baab15e886ed2d7f6f0e516980d45e8147504ac0cc21097314b3adcfcebbbd2c"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/models/__init__.py",
+    "source_sha256": "673493d8c8bc3c8236117cd89a680f5b96a2253d7b2ef3229355cf2674cd3d93"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/models/kgnn.py",
+    "source_sha256": "94dac42524246f44bde04b282461bee8be8f06ec1a95e54d77e7a567c80f37f0"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/models/gcn2.py",
+    "source_sha256": "2841a6e21397457bc502413b51184edc82987a6c245cf443e6e01cfb74bc026e"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/arxiv/conf/saint_sage.yaml",
+    "source_sha256": "2490592f28b1ee720566ffc466979fe949019891a36ff97e0191251fd4901f19"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/arxiv/conf/gcn2_nonorm.yaml",
+    "source_sha256": "a0a4303b53a4d30eb946bb2b781ef8308f25f592d9d1762e7d4cee2fd57f4264"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/arxiv/conf/sage.yaml",
+    "source_sha256": "e9480c8f7218b1e1f01fe8d6845dc085a8072d8d5fd71a37bc94b6225c68cc88"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/arxiv/conf/sage_nonorm.yaml",
+    "source_sha256": "639789ff3e4097a4bd458792f64fa31179fe9afcb3cb8bf280c65a1a5c1c93a7"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/arxiv/conf/cluster_gcn.yaml",
+    "source_sha256": "0928e14ac84783eb29c7f1fd4cfa2ba39b49015918edf26213e644c2543735a0"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/arxiv/conf/gcn.yaml",
+    "source_sha256": "06c2c1ba4d71c2d92b77eda5b7f6edf17cc8aa0b8004717ea733c4ce83c4d31c"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/arxiv/conf/gcn_nonorm.yaml",
+    "source_sha256": "a88a9df024c6a1fcc8fbd308b08ba755e0d4e4395d229445fa99fe3a141cb127"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/arxiv/conf/gcn2_norm0.1.yaml",
+    "source_sha256": "60e3776876b8ab9a60168aaa8b71eea4af3f2a817a0ea17593abaf1449755f57"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/arxiv/conf/gat.yaml",
+    "source_sha256": "5aaf3545f82a6c453e3a158b2d36de6f269a5c8f7a9375a99dc15eadc368d9f1"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/arxiv/conf/gcn2.yaml",
+    "source_sha256": "3fd2fe020180455b6504e9bd9e53f3a0983226b04b3b482061bb711bff780208"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/products/conf/saint_sage.yaml",
+    "source_sha256": "d26cb42468a46ddd7692f6afe36207040289bc078eab881adcff621de330c49a"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/products/conf/cluster_sage.yaml",
+    "source_sha256": "2ff250d20d4848a0b04baa4d7821a4e35399dc3a3b40e3c62b2d85cf69c3e7e0"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/products/conf/saint_sage_b4.yaml",
+    "source_sha256": "6cbb86c089a9ae171a01504ecc1c819c5055e97bd976c5f7bce14ae5eb2d1785"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/products/conf/sage.yaml",
+    "source_sha256": "0bee1db84985437f74bb0f6a0932f68590d603dcee76b61739649d3ba6f04cab"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/products/conf/deepergcn.yaml",
+    "source_sha256": "5f4a98e941b5c19e4508a6d958c287d5feb298a6bbb08ecb14f0aefb70ed6735"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/products/conf/gcn.yaml",
+    "source_sha256": "a5679ed58c016f3522fd8ebd3ac2597ab95343e66c288c56085463c2b00b73aa"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/products/conf/saint_sage_b3.yaml",
+    "source_sha256": "936d483ea8255b3161f4aaec31c33a8b1b3f2942bdac630534c68633ea0441f2"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/non_ogb_datasets/conf/saint_sage.yaml",
+    "source_sha256": "42b0e0ea1ef6bf1e4cf93cf7b68a11d90eabb053902eaadb1577346389e0d704"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/non_ogb_datasets/conf/sage.yaml",
+    "source_sha256": "193de37e630d6120a29a6f8fabc416a7d0b5dc298e3d11f2ce000f1772b23617"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/non_ogb_datasets/conf/gcn_smoke.yaml",
+    "source_sha256": "a76515d96afc25a7e2e2d48d674c8f44e208352c07b9127f14939056fd45f8bf"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/non_ogb_datasets/conf/cluster_gcn.yaml",
+    "source_sha256": "08c6217167e22d4d79e9ffd795e5a3bdfaf9b3e6a3605ffb3d2dac05724f0d0a"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/non_ogb_datasets/conf/gcn.yaml",
+    "source_sha256": "68fd140bc9d31ddf83a1e19bd34e692b926161ed153da7869749c3aca167530e"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/non_ogb_datasets/conf/gcn2.yaml",
+    "source_sha256": "8791c28f740112793759cd8ea0ac215a37cafb157d375972550ebb1af567368f"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/proteins/conf/saint_sage.yaml",
+    "source_sha256": "63f0332b2c3e6e11a95b12217cc475d26e4464a835ea4ac32c10369981dd6cfe"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/proteins/conf/sage.yaml",
+    "source_sha256": "8cbe5e9d58cfdba7c5170936e750381f09ea89969893b1009fa574f5b92c4501"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/proteins/conf/gcn.yaml",
+    "source_sha256": "c72b7ebbcf6d1d77821e29434cd6f05cb422ed3e263f21c968cf5d9a97a3459d"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/mem_speed_bench/proteins/conf/gcn2.yaml",
+    "source_sha256": "1b3d6c8e9c5151c89c6ad41499df6a8033ed09a3dd3d7c61f539d58dc821f7ef"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/src/dspar/sparsification.py",
+    "source_sha256": "fecde9171868fc97abd9cded08650effab652618fbf04edeecf140c1a5104b9f"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/src/dspar/__init__.py",
+    "source_sha256": "2bcf8325c1cea57306332bd0c865a51d922ca6a3c35707c9878bda7c4355801d"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/src/dspar/gatconv.py",
+    "source_sha256": "6a9ca8a50dba32a659b77f63bb5d1da73ea98ac65a5cb41fcba1aed4bf82c9d4"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/src/dspar/utils.py",
+    "source_sha256": "aff61871f9e5d572a8120b7575223793c57ceb21f9d2e94301d2d1897082d0f1"
+  },
+  {
+    "file": "RelatedMethods/DSpar_tmlr-main/src/dspar/cpp_extension/ext_common.h",
+    "source_sha256": "8ccbbb4c2c75110756b5bf756f4311c50d81affb376a5f174849a3d8ca07a796"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/LICENSE",
+    "source_sha256": "71ab3d4540123b9cde934422a3cff886368c30a578f6494c866f20330928e515"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/NodeClassification/main_gingat_baseline.py",
+    "source_sha256": "8e06d0ebc3aa2eba3ad2ca45b2cffaea8d9bb0ff14b02358dff418d42456f31a"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/NodeClassification/main_admm_omp.py",
+    "source_sha256": "3e564e0c0728d3dad6fe6eb5afc48a08c1d5dcbde18c39e940f24f1008c2c79f"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/NodeClassification/main_gingat_imp.py",
+    "source_sha256": "90d3f645146ca204540085232ed4914be3050fde77ad6d0f702c8a6ae14b11d3"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/NodeClassification/main_pruning_imp_pretrain.py",
+    "source_sha256": "e5b8178ae4415099dee8f8110c25b56925c852325aa4242490c9b966fb9a91b2"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/NodeClassification/main_pruning_random.py",
+    "source_sha256": "06eb9f27ad64c2cae188f604d2d15c6ee941161d2b5f6de8bc826fa7a3e77117"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/NodeClassification/main_gingat.py",
+    "source_sha256": "af9d3d8183c3794d15626a2da54c45820fa4eb2a7b0b409694b688afbd5fe548"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/NodeClassification/DeviceDir.py",
+    "source_sha256": "b043aa17b51b8a7401450ba5daf5453750eb177c9fd7dc825fca694e05e0b3e8"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/NodeClassification/main.py",
+    "source_sha256": "e4b8aee9b3b96e190d0d031a5f3dcf8e490414c6e39cf5a9f5b384e5b843b13d"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/NodeClassification/pruning_gin.py",
+    "source_sha256": "ac279822983df9ac5c0d340b93a9015e02448fc7c04b04bb01a2933e2df00aeb"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/NodeClassification/main_pruning_imp.py",
+    "source_sha256": "2e309c2349a6cb7ac21d1c7d2a4436621e8ec8df2abce85ecfdfc8423c50680e"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/NodeClassification/main_pruning_imp_baseline.py",
+    "source_sha256": "478e2686821415506dab86f5b32ddf1a101ebaf0f95f5664b8ebe3a5501f9736"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/NodeClassification/net.py",
+    "source_sha256": "954ad3020ac43c01eeb2075a1ed33a701c8a553ede20371040935616e20be73b"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/NodeClassification/pruning.py",
+    "source_sha256": "2b84928c57cf1bd17c7cedb6becfe2cef809b7ff0ed4b761400cae32c1760e44"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/NodeClassification/main_gingat_rp.py",
+    "source_sha256": "4b1dc9d825083d3f7c0b93c40dc66b92bb674e1642e5a45dc0466c1cd5f572c0"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/NodeClassification/utils.py",
+    "source_sha256": "3b1541ff63079b438fc1b86b1ba4d2544eb6787acb0b908b31c15ca8228c1b77"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/NodeClassification/pruning_gat.py",
+    "source_sha256": "716668ffae92cd0257f286b807f0345849c353b5a3ad95f03ffc9c0e274b22df"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/NodeClassification/gnns/gat_layer.py",
+    "source_sha256": "0538d73ce08dd6d2c01b67eb0718a030839e2e879409687f83bf71bed28ebf24"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/NodeClassification/gnns/gin_layer.py",
+    "source_sha256": "5069afde495f03fb9a57a50564bc62ed400b101f7abcc1cb8e02b6a1a07eebb6"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/NodeClassification/gnns/gin_net.py",
+    "source_sha256": "3daafc5a5f4e8a0f43b04db517f23d701300d3ba85fb28c007706cccdbffa091"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/NodeClassification/gnns/mlp_readout_layer.py",
+    "source_sha256": "0a0fc71d781fa2370f16d96230dbf1090d39540804506a1862dbe0d30734f9ec"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/NodeClassification/gnns/gat_net.py",
+    "source_sha256": "3e371c6200ac777c7ddf52c8d24ff278460e275d504ee324d53d6d58f976defc"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/NodeClassification/ADMM/ADMM/pretrain.py",
+    "source_sha256": "6588bace3a9b137cf51c0176e7ebeeae69593ea241f5591424e97bab539f2b05"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/NodeClassification/ADMM/ADMM/layers.py",
+    "source_sha256": "d14b66a70a74efdc32937c4d0bcbbc40f44e8d8dd9ebecfebd627e862be752dc"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/NodeClassification/ADMM/ADMM/metrics.py",
+    "source_sha256": "953720296d440cfed948cd83c3162b72c4a5c759a5c1d1754254437cd0849f3f"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/NodeClassification/ADMM/ADMM/main_admm_auto_tune.py",
+    "source_sha256": "cff0370b4c25f1374bd0bcbeaf83ff8c8b372cbf1ba0d0911e111da228054b37"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/NodeClassification/ADMM/ADMM/train-auto-admm-tuneParameter.py",
+    "source_sha256": "cac3d0c6e5d582e06200032bf5797c45efcc6b2409be493608c8ad077c5efbe7"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/NodeClassification/ADMM/ADMM/models.py",
+    "source_sha256": "baa40617693a5413055163304f523e039de4ff14f4644c6cd352d20ec4f4f8c3"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/NodeClassification/ADMM/ADMM/inits.py",
+    "source_sha256": "f77744835f42b0d410de24ba4a16bee33552e06b3dfda7e983d3865c14d2d85f"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/NodeClassification/ADMM/ADMM/main_train.py",
+    "source_sha256": "b80918ef77f2cb6dbdd1df5ba867551e0358ae82b7358581b343cb2fa0762746"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/NodeClassification/ADMM/ADMM/train.py",
+    "source_sha256": "b0acc8661da11b85c09300517e46eed1c4400ee956ca661a3eb66128b6936931"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/NodeClassification/ADMM/ADMM/__init__.py",
+    "source_sha256": "41bd6e4105fd36c7baafd7d87f83d8b7647f2acb9a42639ff124f726d2c65bd7"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/NodeClassification/ADMM/ADMM/utils.py",
+    "source_sha256": "4f95a6a30f6a9a4ee5bdd9bda1c9d3dce18017346d302105fc6381cd96404e02"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_proteins/gcn_lib/__init__.py",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_proteins/utils/pc_viz.py",
+    "source_sha256": "9a141bd6150bb037956cee4fac74eb329a5967ec01082e29a5205a96fb0e60d9"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_proteins/utils/metrics.py",
+    "source_sha256": "08b08a4ea872609bde7d3f25f94b7c7b6f467dc1caa00d17c5afdfefd58b31f0"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_proteins/utils/logger.py",
+    "source_sha256": "effeb30b979083207804fad85aa34c02bd688d91a23fadd231cc68e503a14500"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_proteins/utils/tf_logger.py",
+    "source_sha256": "c58fec0a52fb1b441f8d003277f4111772e07caa3f8e5aa6bb2660776125fd1a"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_proteins/utils/ckpt_util.py",
+    "source_sha256": "9742fdd403340a993dcde55760ce0de5f7537f5f8c44426e02e2099a4885ff81"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_proteins/utils/loss.py",
+    "source_sha256": "3d78009bf2e2547a1766bc8b4fe46e0a3f6896c5b0ac0cc7a7cc6d9d2fbf8f20"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_proteins/utils/data_util.py",
+    "source_sha256": "89624baae7a77b6f81cf86a0ba424d824b8c4adf845f5d089822f9e737928937"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_proteins/utils/__init__.py",
+    "source_sha256": "60ab12b1782a1ddad8bc802128c457edcc47c77f355efa681dbdcaa15b4b0028"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_proteins/utils/optim.py",
+    "source_sha256": "e645be4e89eb87f0b74089198935f8e3da9590a387dd24e1352e7edd3f5baeb3"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_proteins/unify/ogb/ogbn_proteins/dataset.py",
+    "source_sha256": "b75e11d7f7e9cfb3d06b8b53936e0188187d536bfca2f7de3c3c3d1623b187a7"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_proteins/unify/ogb/ogbn_proteins/model.py",
+    "source_sha256": "8f4c4f456b03b57c7ec2860f662442b3920dc77b82a627360cd28b010fa0a1c4"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_proteins/unify/ogb/ogbn_proteins/main_baseline.py",
+    "source_sha256": "cfdc3f703993b843026140b1171f68a54313ec06b77a0b28ff2ff8d0fa0239bf"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_proteins/unify/ogb/ogbn_proteins/args.py",
+    "source_sha256": "c3e4848f6126c944b67a115f16595bce298b2523c58f5eb7571d0e482bf97076"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_proteins/unify/ogb/ogbn_proteins/train.py",
+    "source_sha256": "e94c261ca742a4a6f00d978b032c661bb7e0b5f4058b65370b89ddd096eff1fc"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_proteins/unify/ogb/ogbn_proteins/test.py",
+    "source_sha256": "4edced8886287e3580bc527a30ca611017f37cbeb148ad395d268ecb3633dc87"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_proteins/unify/ogb/ogbn_proteins/main.py",
+    "source_sha256": "8f3e8b4137f39a0872295a75408108313617e1f4d9caa3a81540dd476b3199db"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_proteins/unify/ogb/ogbn_proteins/pruning.py",
+    "source_sha256": "83e0df1cef6639865dada6d2d1418f3370a1af2eea948958a60a047efe321d82"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_proteins/unify/ogb/ogbn_proteins/__init__.py",
+    "source_sha256": "1bd369aaa5b0748e4383727465f454ab52a24695050c817c2c8e457b17a6010b"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_proteins/unify/ogb/ogbn_proteins/main_imp.py",
+    "source_sha256": "c0a1cc979f65eade40fa197c7166d0df2e5a1fd56a2107cd64521151722b4245"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_proteins/unify/ogb/ogbn_proteins/main_rp.py",
+    "source_sha256": "e30db2e589eeb1a1be02cd866bd8e0c1814b00480eac087bf64c89ec1e362d5a"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_proteins/gcn_lib/sparse/torch_vertex.py",
+    "source_sha256": "b9cf562d881148769df10aa484dad5e946264a9b387af3d56476780d0f75ec6c"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_proteins/gcn_lib/sparse/torch_nn.py",
+    "source_sha256": "b526d82821d859a34d66799f13d5347c664b02e43f64eb7bb632b0d7266a8aa7"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_proteins/gcn_lib/sparse/__init__.py",
+    "source_sha256": "eef005d4bef25c47896bf33460f1cc8d68c65ddfde03f456fb86e81fdeb714cb"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_proteins/gcn_lib/sparse/torch_message.py",
+    "source_sha256": "af951edf08e677df29a9c21762aad2f45bad372745a1af9e8e37af332f20eac7"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_proteins/gcn_lib/sparse/torch_edge.py",
+    "source_sha256": "ae64595172cd618c9fc710c977516ff396c62f44d0b490f107b84d4d84b1db04"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_proteins/gcn_lib/dense/torch_vertex.py",
+    "source_sha256": "4b23a8ff4ea9d23e765cd3d885d5126e721b85a165030b674d6eda9d201e7c8d"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_proteins/gcn_lib/dense/torch_nn.py",
+    "source_sha256": "e15721cf3df3ae9c24bbaab8fe752b91a876d330db2bd26c81cfdf914539953a"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_proteins/gcn_lib/dense/__init__.py",
+    "source_sha256": "eef005d4bef25c47896bf33460f1cc8d68c65ddfde03f456fb86e81fdeb714cb"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_proteins/gcn_lib/dense/torch_edge.py",
+    "source_sha256": "d5e411c082be7353e208fa714845fbbadd19a9455271f4b8484213726b8c1d9b"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_arxiv/gcn_lib/__init__.py",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_arxiv/utils/pc_viz.py",
+    "source_sha256": "9a141bd6150bb037956cee4fac74eb329a5967ec01082e29a5205a96fb0e60d9"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_arxiv/utils/metrics.py",
+    "source_sha256": "08b08a4ea872609bde7d3f25f94b7c7b6f467dc1caa00d17c5afdfefd58b31f0"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_arxiv/utils/logger.py",
+    "source_sha256": "dfcee2eb837ef857246c961c3d086727eaa824a4884012407334895736b91f58"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_arxiv/utils/tf_logger.py",
+    "source_sha256": "c58fec0a52fb1b441f8d003277f4111772e07caa3f8e5aa6bb2660776125fd1a"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_arxiv/utils/ckpt_util.py",
+    "source_sha256": "fb1f4e9427acd90caa48256fa98cac22180159b83a0c396aa812025f2efa36c2"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_arxiv/utils/loss.py",
+    "source_sha256": "3d78009bf2e2547a1766bc8b4fe46e0a3f6896c5b0ac0cc7a7cc6d9d2fbf8f20"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_arxiv/utils/data_util.py",
+    "source_sha256": "89624baae7a77b6f81cf86a0ba424d824b8c4adf845f5d089822f9e737928937"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_arxiv/utils/__init__.py",
+    "source_sha256": "60ab12b1782a1ddad8bc802128c457edcc47c77f355efa681dbdcaa15b4b0028"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_arxiv/utils/optim.py",
+    "source_sha256": "e645be4e89eb87f0b74089198935f8e3da9590a387dd24e1352e7edd3f5baeb3"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_arxiv/unify/ogb/ogbn_arxiv/model.py",
+    "source_sha256": "baa4109f3b9f72284153e1233cbe2d6a9cde497264adeca8573066fc163861a7"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_arxiv/unify/ogb/ogbn_arxiv/args.py",
+    "source_sha256": "4c5e5248803cf40e86a6888420df01fd414038af642f9e75a05bc629963b73f5"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_arxiv/unify/ogb/ogbn_arxiv/main_imp_baseline.py",
+    "source_sha256": "4dbe4ca616bc2a744c2c4ec9cc407d2fa2371a81983408d08ef98817e3cd8d7c"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_arxiv/unify/ogb/ogbn_arxiv/test.py",
+    "source_sha256": "4b138c65894f7f0b15a7989ecde497dc35f2f87380666c8fda8b1062199ef60f"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_arxiv/unify/ogb/ogbn_arxiv/main.py",
+    "source_sha256": "52531e837ec1c24eb54db4891a3aa394cf6e2ee165c60953eb6180df12b97d65"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_arxiv/unify/ogb/ogbn_arxiv/pruning.py",
+    "source_sha256": "c9d3c03117b59ef55d9ccb9eb22175ad6b01c6dfe0b3e373376ff1950baa4e72"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_arxiv/unify/ogb/ogbn_arxiv/__init__.py",
+    "source_sha256": "1bd369aaa5b0748e4383727465f454ab52a24695050c817c2c8e457b17a6010b"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_arxiv/unify/ogb/ogbn_arxiv/main_imp.py",
+    "source_sha256": "edebb558c7f4d513378f53465ec0696831e502a9750f6b8bbe388d127a5b6273"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_arxiv/unify/ogb/ogbn_arxiv/main_rp.py",
+    "source_sha256": "fdba5af9e03d4ee2c80168102c302b5864f3c410ee3ff53a11c501e530cd6af6"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_arxiv/gcn_lib/sparse/torch_vertex.py",
+    "source_sha256": "75629d1bfc9d798baa8c7b4dc527ab87cd56f905c546aa596c624eac75008df7"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_arxiv/gcn_lib/sparse/torch_nn.py",
+    "source_sha256": "b526d82821d859a34d66799f13d5347c664b02e43f64eb7bb632b0d7266a8aa7"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_arxiv/gcn_lib/sparse/__init__.py",
+    "source_sha256": "eef005d4bef25c47896bf33460f1cc8d68c65ddfde03f456fb86e81fdeb714cb"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_arxiv/gcn_lib/sparse/torch_message.py",
+    "source_sha256": "af951edf08e677df29a9c21762aad2f45bad372745a1af9e8e37af332f20eac7"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_arxiv/gcn_lib/sparse/torch_edge.py",
+    "source_sha256": "ae64595172cd618c9fc710c977516ff396c62f44d0b490f107b84d4d84b1db04"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_arxiv/gcn_lib/dense/torch_vertex.py",
+    "source_sha256": "4b23a8ff4ea9d23e765cd3d885d5126e721b85a165030b674d6eda9d201e7c8d"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_arxiv/gcn_lib/dense/torch_nn.py",
+    "source_sha256": "e15721cf3df3ae9c24bbaab8fe752b91a876d330db2bd26c81cfdf914539953a"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_arxiv/gcn_lib/dense/__init__.py",
+    "source_sha256": "eef005d4bef25c47896bf33460f1cc8d68c65ddfde03f456fb86e81fdeb714cb"
+  },
+  {
+    "file": "RelatedMethods/Unified-LTH-GNN-main/OGBN_arxiv/gcn_lib/dense/torch_edge.py",
+    "source_sha256": "d5e411c082be7353e208fa714845fbbadd19a9455271f4b8484213726b8c1d9b"
+  },
+  {
+    "file": "RelatedMethods/MoG-main/citation/logger.py",
+    "source_sha256": "ac4747e1acd75d19e73c68db0e83758d7f1761d3cacd118e1a203052fa082731"
+  },
+  {
+    "file": "RelatedMethods/MoG-main/citation/args.py",
+    "source_sha256": "3867c62136d3ff5a49ac13c92215dcb1c4572aae4d9e2406b55dc621f458baf4"
+  },
+  {
+    "file": "RelatedMethods/MoG-main/citation/SpLearner.py",
+    "source_sha256": "7b46dedb0c41bf7bc4cf6f1f197a134e88d02104b089b256d5f13960c17629dc"
+  },
+  {
+    "file": "RelatedMethods/MoG-main/citation/MoE.py",
+    "source_sha256": "e3d332b59586aeadb8a233a2c0f6dea4b2e9b22f16604bdaf45a8085d0b3e636"
+  },
+  {
+    "file": "RelatedMethods/MoG-main/citation/DeviceDir.py",
+    "source_sha256": "32b3f722d281798dd3b413b8d51ec8c8b7c4fda681dd084e4f3a3dba9430eba6"
+  },
+  {
+    "file": "RelatedMethods/MoG-main/citation/main.py",
+    "source_sha256": "2cdc2e43b9e542009016366f33c124a2fce86d335b65acb62e770d2a1b1b770b"
+  },
+  {
+    "file": "RelatedMethods/MoG-main/citation/MoG.py",
+    "source_sha256": "a96c8bbbe0b5fa5fb3bca24e66619f0ec3bfb6ff0329f017bef491ba86b6c1ed"
+  },
+  {
+    "file": "RelatedMethods/MoG-main/citation/gnn.py",
+    "source_sha256": "edd8b9ca34dc88c99619181f47228229851008d2264830ef01dde4a7e5322f4e"
+  },
+  {
+    "file": "RelatedMethods/MoG-main/ogbn_proteins/dataset.py",
+    "source_sha256": "481c8728a3701af8fb70c8f20dd1cd98d0b4a465320ab1a30d6f9c4689c8d4f5"
+  },
+  {
+    "file": "RelatedMethods/MoG-main/ogbn_proteins/args.py",
+    "source_sha256": "33e16fc87b8f52cea14c0b028b132a2057a20ec6281ad97f34b894f0eddaa259"
+  },
+  {
+    "file": "RelatedMethods/MoG-main/ogbn_proteins/SpLearner.py",
+    "source_sha256": "6353038b49dc38fb3d8cd106ffa94e23c1db31d243967c77e2109539088d4417"
+  },
+  {
+    "file": "RelatedMethods/MoG-main/ogbn_proteins/MoE.py",
+    "source_sha256": "d7edc8f103890153206a7e7c273d07fd0369ca4da5c7d501dfcfe7a4eccab7c0"
+  },
+  {
+    "file": "RelatedMethods/MoG-main/ogbn_proteins/test.py",
+    "source_sha256": "4edced8886287e3580bc527a30ca611017f37cbeb148ad395d268ecb3633dc87"
+  },
+  {
+    "file": "RelatedMethods/MoG-main/ogbn_proteins/main.py",
+    "source_sha256": "a298f9e4f5c82580bc68d2120e78bf0c8d51811f5d9ec62a842559aba9932573"
+  },
+  {
+    "file": "RelatedMethods/MoG-main/ogbn_proteins/MoG.py",
+    "source_sha256": "cb6066a912ad34a13f95ee92a8c38f1ecb728616b10a8fd77e0b1977b613ba22"
+  },
+  {
+    "file": "RelatedMethods/MoG-main/ogbn_proteins/gnn_conv.py",
+    "source_sha256": "6feba1608978d34dd8587efb314c7c1d6a7ebe7a0afc2c254d41d9c3640d82b5"
+  },
+  {
+    "file": "RelatedMethods/MoG-main/ogbn_proteins/utils.py",
+    "source_sha256": "19e8184d4e4abb582837d67284bb6bda737871c017649f1a99b7349b51a7c8fb"
+  },
+  {
+    "file": "RelatedMethods/MoG-main/ogbn_proteins/gnn.py",
+    "source_sha256": "7d9cb4897b46700c6a776c5d757bbab744797c179c411bddb59b5e5f1cb40023"
+  },
+  {
+    "file": "RelatedMethods/MoG-main/ogbn_arxiv/logger.py",
+    "source_sha256": "0f8b0f8822c99db2b698ba88910f837c22d2437affcc0407f506e55722fd5ca4"
+  },
+  {
+    "file": "RelatedMethods/MoG-main/ogbn_arxiv/args.py",
+    "source_sha256": "1126474f1b37731e9700821a04a31a2ffce73c8985e4e6192842f303ef708a9c"
+  },
+  {
+    "file": "RelatedMethods/MoG-main/ogbn_arxiv/SpLearner.py",
+    "source_sha256": "a963d5bacac677070f726d3786aa226251fabb8c51c0c664890e6e2f092238f2"
+  },
+  {
+    "file": "RelatedMethods/MoG-main/ogbn_arxiv/MoE.py",
+    "source_sha256": "2da3e2430537acc2b76a57c41c5635633e5a571d62657e665d255a56737341ed"
+  },
+  {
+    "file": "RelatedMethods/MoG-main/ogbn_arxiv/main.py",
+    "source_sha256": "d5447006e295f667d5931658a505bc60d4c0ad409067621e14a3bbc71d83c730"
+  },
+  {
+    "file": "RelatedMethods/MoG-main/ogbn_arxiv/MoG.py",
+    "source_sha256": "e659bb05d44b039d607cdb51c8f3d208b3790f703353f93efedfb8dc80f24011"
+  },
+  {
+    "file": "RelatedMethods/MoG-main/ogbn_arxiv/gnn.py",
+    "source_sha256": "edbb3cd2fc452468b0cd73c6efd31577b4e303252f54e3927f5803c6f502c3c5"
+  },
+  {
+    "file": "RelatedMethods/GraphSAINT-RW/graphsaint_rw.py",
+    "source_sha256": "ce449cd97b15a2775f1c88b48b0b4489585e71e99ae675456a779ba48e064fc9"
+  },
+  {
+    "file": "RelatedMethods/TunedGNN-GraphSAINT-RW/model.py",
+    "source_sha256": "272ee858cf2ca8c3af4c3223b71acc440b2a0e12fa084406271bfadf52f70378"
+  },
+  {
+    "file": "RelatedMethods/TunedGNN-GraphSAINT-RW/tunedgnn_graphsaint_rw.py",
+    "source_sha256": "ff69bc5e57ff354742c46164c623ee72da68ab830afd3b947e63d18a53792c51"
+  },
+  {
+    "file": "RelatedMethods/Spectral/Project.toml",
+    "source_sha256": "d5347ba274d9579c5e5bc1a7bf443b5abd4cbc642d6500b9dfee72f2acfc7ec0"
+  },
+  {
+    "file": "RelatedMethods/Spectral/Manifest.toml",
+    "source_sha256": "1dbfab020ec8f5afba683f26296d0442dba459288c18c1bb798bc0bb0229490a"
+  },
+  {
+    "file": "RelatedMethods/Spectral/precompute_er.py",
+    "source_sha256": "398fa0e4ef95dcb8a578e32adf6ebdefe4f350a92d19ba160be940a121319252"
+  },
+  {
+    "file": "RelatedMethods/Spectral/run.py",
+    "source_sha256": "94d69b0ea19c4c331c74dce5ecd1ecb9710d0f4b76c381f8e82016e093552a88"
+  },
+  {
+    "file": "RelatedMethods/Spectral/src/SpectralSparsification.jl",
+    "source_sha256": "c377b8b0629bfe36a7b6b3784922edcd4887438748fb5cab94f642a4828ab2ae"
+  },
+  {
+    "file": "RelatedMethods/Spectral/bin/precompute_er.jl",
+    "source_sha256": "2a54bcd93120a7c301a80486ba8836f659be33e85bfc1eb13eb132ee9fdc4d0f"
+  },
+  {
+    "file": "RelatedMethods/Spectral/bin/spectral_sparsify.jl",
+    "source_sha256": "de1afe5e69015835e602a70a0dc890082863e8eef45fd5c119747f8057484fb6"
+  },
+  {
+    "file": "RelatedMethods/Spectral/python/finalize_tgt.py",
+    "source_sha256": "5e27a2db1e599ba73920bc1717d9224d72a3699f124d017b37f06b43bc9cf3bb"
+  },
+  {
+    "file": "RelatedMethods/Spectral/python/tgt_binary.py",
+    "source_sha256": "50b41ffefd109ec0110f1e186f26df56171dde3c0b3c619960a6ae01e77836e6"
+  },
+  {
+    "file": "RelatedMethods/Spectral/large_graph/CMakeLists.txt",
+    "source_sha256": "6811bce8ee0ff99161126f16b1d1f198de8df00898aced9484adf269f7bd6eb6"
+  },
+  {
+    "file": "RelatedMethods/Spectral/large_graph/src/tgt_effective_resistance.cpp",
+    "source_sha256": "8c196687191044309e165ad570b78c2616c8e415a56af490de578e7f52e7540b"
+  },
+  {
+    "file": "RelatedMethods/Spectral/test/runtests.jl",
+    "source_sha256": "ffb4454ab9f8838dd96c379dc49f108c7d08cbd5224448bb4f16a8c427d613aa"
+  },
+  {
+    "file": "RelatedMethods/Spectral/tests/test_tgt_binary.py",
+    "source_sha256": "4a6758bc4e1a013497fc79d3b9acaa2725021931051aa9255c7d4ae91e7ea367"
+  },
+  {
+    "file": "RelatedMethods/Spectral/tests/test_export.py",
+    "source_sha256": "e1cb50d040adf7fbe529902cb44ec3ee654483941828d0aafccb460f63f68c06"
+  }
+]

@@ -1,0 +1,25 @@
+# Local data and generated artifacts
+/data/
+/results/
+/artifacts/
+/.local/
+build/
+dist/
+*.egg-info/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+.env
+*.log
+*.out
+*.pid
+*.pt
+*.pth
+*.npz
+*.npy
+*.bin
+*.so
+*.o
+.julia_depot/

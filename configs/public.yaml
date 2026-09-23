@@ -1,0 +1,8 @@
+profile: public
+data_dir: ./data
+results_dir: ./results
+cache_dir: ./results/cache
+device: auto
+workers: auto
+training_profile: original
+seed: 42

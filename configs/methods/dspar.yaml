@@ -1,0 +1,5 @@
+kind: baseline
+runner: scripts/methods/dspar/run_dspar.sh
+parameters: {}
+description: Native method or documented scalable adapter, with a shared TunedGNN
+  preset.
