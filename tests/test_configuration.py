@@ -73,7 +73,7 @@ def test_multiview_command_satisfies_core_protocol():
     command=build_command(args,conf,spec,preset,ROOT/'results'/'test-multi')
     parsed=parser_add_main_args(argparse.ArgumentParser()).parse_args(command[4:])
     assert validate_final_views(parsed)==('1','3')
-    assert parsed.scaffold_resparsify_every==20
+    assert parsed.scaffold_resparsify_every==1
 
 
 @pytest.mark.parametrize('method',['scaffold-fast','scaffold-batch','scaffold-sample'])
@@ -91,7 +91,7 @@ def test_full_evaluation_preserves_sparse_training(method,mode):
     assert parsed.scaffold_final_best_full_checkpoint
     assert parsed.target_ratio==conf['ratio']==0.7
     assert parsed.sparsifier==spec['sparsifier']
-    assert parsed.scaffold_resparsify_every==(20 if mode=='multi' else 0)
+    assert parsed.scaffold_resparsify_every==(1 if mode=='multi' else 0)
     assert parsed.scaffold_final_graph_bank_size==(3 if mode=='multi' else 1)
     assert conf['include_full_eval'] is True
 
@@ -103,14 +103,66 @@ def test_full_evaluation_rejects_unsupported_methods(method):
         resolve(args)
 
 
-def test_reported_accuracy_reserves_all_three_evaluation_protocols():
+def test_reported_recipes_preserve_core_settings_and_cora_scope():
+    from scaffold_gnn.accuracy import core_parser, load_recipe
+    from scaffold_gnn.utils.scaffold_multiview import validate_final_views
     recipes=yaml.safe_load((ROOT/'configs/reported_accuracy.yaml').read_text())
     datasets=yaml.safe_load((ROOT/'configs/datasets.yaml').read_text())
-    assert recipes['status']=='pending_validation'
-    assert recipes['selection_rule']=='validation_only'
+    assert recipes['status']=='source_settings_imported_not_rerun'
     assert recipes['settings'].keys()==datasets.keys()
-    for settings in recipes['settings'].values():
-        assert settings==dict.fromkeys(['scaffold_1','scaffold_k','scaffold_full'])
+    assert set(recipes['settings']['cora'])=={'scaffold_1'}
+    assert set(recipes['settings']['cora']['scaffold_1'])=={'scaffold_greedy','scaffold_heap'}
+    for dataset, protocols in recipes['settings'].items():
+        if dataset!='cora':
+            assert set(protocols)=={'scaffold_1','scaffold_k','scaffold_full'}
+        for protocol, methods in protocols.items():
+            for method in methods:
+                args=parser().parse_args(['--dataset',dataset,'--method',method.replace('_','-'),
+                                         '--recipe',protocol.replace('_','-'),'--device','cpu','--dry-run'])
+                conf,spec,preset=resolve(args)
+                command=build_command(args,conf,spec,preset,ROOT/'results'/'test-recipe')
+                parsed=core_parser().parse_args(command[4:])
+                validate_final_views(parsed)
+                expected,_=load_recipe(dataset,args.recipe,args.method)
+                for key,value in expected.items():
+                    if value is not None:
+                        actual=getattr(parsed,key)
+                        assert str(actual).lower()==str(value).lower(),(dataset,protocol,method,key,actual,value)
+                if protocol=='scaffold_1':
+                    assert parsed.scaffold_resparsify_every==0 and parsed.eval_graph=='sparse'
+                if protocol=='scaffold_k':
+                    assert parsed.scaffold_eval_ensemble_size in (5,10) or '5' in parsed.scaffold_final_eval_views
+                if protocol=='scaffold_full':
+                    assert parsed.eval_graph=='original'
+
+
+@pytest.mark.parametrize('method',['scaffold-fast','scaffold-batch','scaffold-sample'])
+def test_default_is_async_full_evaluation(method):
+    from scaffold_gnn.parse import parser_add_main_args
+    args=parser().parse_args(['--method',method,'--dry-run'])
+    conf,spec,preset=resolve(args)
+    parsed=parser_add_main_args(argparse.ArgumentParser()).parse_args(
+        build_command(args,conf,spec,preset,ROOT/'results'/'test-default')[4:])
+    assert conf['mode']=='full'
+    assert parsed.eval_graph=='original'
+    assert parsed.scaffold_resparsify_every==1
+    assert parsed.scaffold_async_resparsify
+    assert parsed.scaffold_fast_maxst_every==0
+    assert parsed.scaffold_final_eval_views is None
+    assert parser().parse_args([]).method=='scaffold-sample'
+
+
+def test_recipe_overrides_are_explicit_and_inference_policy_is_fixed():
+    from scaffold_gnn.accuracy import core_parser
+    args=parser().parse_args(['--dataset','citeseer','--method','scaffold-sample',
+                             '--recipe','scaffold-1','--epochs','2','--runs','1','--seed','8','--dry-run'])
+    conf,spec,preset=resolve(args)
+    parsed=core_parser().parse_args(build_command(args,conf,spec,preset,ROOT/'results'/'test-override')[4:])
+    assert (parsed.epochs,parsed.runs,parsed.seed)==(2,1,8)
+    assert parsed.scaffold_resparsify_every==0
+    args=parser().parse_args(['--recipe','scaffold-1','--mode','full','--dry-run'])
+    with pytest.raises(ValueError,match='fixes the inference protocol'):
+        resolve(args)
 
 
 @pytest.mark.parametrize('profile',['ogbn-arxiv','ogbn-proteins'])

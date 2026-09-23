@@ -4,11 +4,11 @@ The cleaned runner has one shared model-preset table and one shared graph/split 
 
 ## Accuracy recipes
 
-`configs/reported_accuracy.yaml` is deliberately pending. Existing research defaults are usable, but they are not a claim of reproducing the submitted table. Fill the validated per-dataset Scaffold-1, Scaffold-K, and Scaffold-Full recipes after the next accuracy campaign. Select configurations/checkpoints using validation data, never test accuracy. Preserve run seeds, split fingerprints, actual edge counts, checkpoint policy, refresh cadence, and union size.
+`configs/reported_accuracy.yaml` contains imported per-dataset Scaffold-1, Scaffold-K, and Scaffold-Full settings. `--recipe` loads their recorded construction, training, and evaluation flags. See `ACCURACY.md` for coverage and source-table discrepancies. Importing settings is not a new accuracy measurement. Select configurations/checkpoints using validation data, never test accuracy. Preserve run seeds, split fingerprints, actual edge counts, checkpoint policy, refresh cadence, and union size.
 
-Scaffold-1 retains one support throughout training. Scaffold-K refreshes supports asynchronously and retains a validation-ranked graph bank for final union inference. The requested per-support ratio and realized union ratio are different quantities. Sample's number of precomputation forests is independent of the number of inference supports.
+Scaffold-1 retains one support throughout training. Scaffold-K refreshes supports and retains a validation-ranked graph bank for union inference. Recipes retain the source checkpoint policy and refresh mode; some historical runs were synchronous. The requested per-support ratio and realized union ratio are different quantities. Sample's number of precomputation forests is independent of the number of inference supports.
 
-Scaffold-Full trains on sparse supports and evaluates on the original full graph. Add `--include-full-eval` to a Fast, Batch, or Sample run; `--mode` still controls whether training reuses or refreshes supports. The full graph has its own validation-selected checkpoint, recorded as `view=all`, `model_policy=best-validation` in `multiview.csv`; `target_ratio` remains the training support budget and `achieved_ratio=1` describes full-graph inference. Check `status=OK` before using the metric. Full-graph validation runs at the configured evaluation cadence and its cost must be included when reporting runtime. The `--method full` baseline instead trains on the full graph too.
+Scaffold-Full trains on sparse supports and evaluates on the original full graph. This is the default mode for Fast, Batch, and Sample; default refresh is asynchronous with no periodic deterministic-backbone override. Use `--recipe scaffold-full` for the historical settings. For custom single/multi runs, `--include-full-eval` adds a separate validation-selected full-graph checkpoint, recorded as `view=all`, `model_policy=best-validation` in `multiview.csv`; check `status=OK` before using it. The training target ratio remains sparse. Charge full-graph validation/evaluation when reporting runtime. The `--method full` baseline trains on the full graph too.
 
 ## Time measurements
 
@@ -26,6 +26,6 @@ For disconnected graphs, a complete spanning forest contains `n-c` edges. Connec
 
 ## Implementation boundaries
 
-The large-graph AdaGLT/Unified-LTH adapters inherited from the accuracy code are approximations; see `METHODS.md`. They must not be described as the later full-batch native runtime ports. The latter use a different protocol without validation and are not silently mixed into the accuracy runner. Exact reported-accuracy settings remain pending.
+The large-graph AdaGLT/Unified-LTH adapters inherited from the accuracy code are approximations; see `METHODS.md`. They must not be described as the later full-batch native runtime ports. The latter use a different protocol without validation and are not silently mixed into the accuracy runner. The imported accuracy recipes cover Scaffold; baseline defaults remain in `configs/methods/` and the shared preset table.
 
 GPU smoke tests establish that code paths execute. They do not establish statistical accuracy, scalability to every dataset, or equivalence of changed research settings. Use the validation record for precisely what was tested.
