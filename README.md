@@ -10,12 +10,23 @@ This repository contains Scaffold, shared TunedGNN settings, and the comparison 
 
 Use Python 3.11 or 3.12 on Linux. Install a CUDA-compatible [PyTorch](https://pytorch.org/get-started/locally/) and the matching [PyG extension wheels](https://pytorch-geometric.readthedocs.io/en/latest/install/installation.html) first. `torch-sparse` and `torch-scatter` are required by the comparison models and partitioning; their wheels must match your PyTorch/CUDA versions.
 
+Download or clone this repository and run from the folder containing `pyproject.toml`. These instructions apply to both the anonymous review copy and the public GitHub copy; `-e` keeps the installed commands connected to your checkout.
+
 ```bash
 python -m pip install -e .
 python scripts/check_environment.py
 python run.py --list
 python run.py --dataset karate --smoke --workers 2
 ```
+
+For a regular installation, use `python -m pip install .` and run experiments with `scaffold-gnn` in place of `python run.py`. Public GitHub also supports direct installation (replace `OWNER` with the repository owner):
+
+```bash
+python -m pip install "git+https://github.com/OWNER/Scaffold-GNN.git"
+scaffold-gnn --list
+```
+
+This repository contains the GNN experiment pipeline. The separate **Scaffold** repository provides the standalone sparsification library (`import scaffold`); its planned post-review PyPI name is `scaffold-sparsifier`. Scaffold-GNN does not require that separate package.
 
 The runner selects the visible CUDA device with the most free memory. For a CPU-only test, add `--device cpu`. It never requests a Slurm allocation. `--workers auto` respects CPU affinity and `SLURM_CPUS_PER_TASK`; explicit worker counts are capped at the available allocation. Use the same Python environment for the launcher and its subprocesses.
 
