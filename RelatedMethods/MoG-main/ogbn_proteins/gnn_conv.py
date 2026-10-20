@@ -104,7 +104,7 @@ class MsgNorm(torch.nn.Module):
 
 class GENConv(GenMessagePassing):
     """
-     GENeralized Graph Convolution (GENConv): 
+     GENeralized Graph Convolution (GENConv).
      SoftMax  &  PowerMean Aggregation
     """
     def __init__(self, in_dim, emb_dim,

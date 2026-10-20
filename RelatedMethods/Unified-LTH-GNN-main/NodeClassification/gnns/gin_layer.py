@@ -5,8 +5,7 @@ import dgl.function as fn
 import pdb
 """
     GIN: Graph Isomorphism Networks
-    HOW POWERFUL ARE GRAPH NEURAL NETWORKS? (Keyulu Xu, Weihua Hu, Jure Leskovec and Stefanie Jegelka, review)
-    
+    HOW POWERFUL ARE GRAPH NEURAL NETWORKS? (Keyulu Xu, Weihua Hu, Jure Leskovec and Stefanie Jegelka)
 """
 msg_mask = fn.src_mul_edge('h', 'mask', 'm')
 # msg_mask = fn.u_mul_e('h', 'mask', 'm')

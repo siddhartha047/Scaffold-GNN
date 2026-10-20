@@ -12,7 +12,7 @@ from torch_geometric.utils import degree
 
 class GENConv(GenMessagePassing):
     """
-     GENeralized Graph Convolution (GENConv): 
+     GENeralized Graph Convolution (GENConv).
      SoftMax  &  PowerMean Aggregation
     """
     def __init__(self, in_dim, emb_dim,
@@ -152,7 +152,7 @@ class GENConv(GenMessagePassing):
 
 class MRConv(nn.Module):
     """
-    Max-Relative Graph Convolution (Paper: )
+    Max-Relative Graph Convolution
     """
     def __init__(self, in_channels, out_channels, act='relu', norm=None, bias=True, aggr='max'):
         super(MRConv, self).__init__()
@@ -197,7 +197,7 @@ class GATConv(nn.Module):
 
 class SAGEConv(tg.nn.SAGEConv):
     r"""The GraphSAGE operator from the `"Inductive Representation Learning on
-    Large Graphs" <>`_ paper
+    Large Graphs"  paper
 
     .. math::
         \mathbf{\hat{x}}_i &= \mathbf{\Theta} \cdot

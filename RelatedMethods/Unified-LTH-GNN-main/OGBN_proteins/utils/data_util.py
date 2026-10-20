@@ -98,7 +98,6 @@ def scale_translate_pointcloud(pointcloud, shift=[-0.2, 0.2], scale=[2. / 3., 3.
 class PartNet(InMemoryDataset):
     r"""The PartNet dataset from
     the `"PartNet: A Large-scale Benchmark for Fine-grained and Hierarchical Part-level 3D Object Understanding"
-    <>`_
     paper, containing 3D objects annotated with fine-grained, instance-level, and hierarchical 3D part information.
 
     Args:

@@ -124,7 +124,6 @@ class MoE(nn.Module):
     
     def noisy_top_k_gating(self, x, edge_index,train, noise_epsilon=1e-2):
         """Noisy top-k gating.
-          See paper: 
           Args:
             x: input Tensor with shape [batch_size, input_size]
             train: a boolean - we only add noise at training time.

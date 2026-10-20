@@ -56,7 +56,7 @@ class SAGE(torch.nn.Module):
 
 class SAGEConv(MessagePassing):
     r"""The GraphSAGE operator from the `"Inductive Representation Learning on
-    Large Graphs" <>`_ paper
+    Large Graphs"  paper
 
     .. math::
         \mathbf{x}^{\prime}_i = \mathbf{W}_1 \mathbf{x}_i + \mathbf{W}_2 \cdot
@@ -364,7 +364,7 @@ def gcn_norm(  # noqa: F811
 class GCNConv(MessagePassing):
     r"""The graph convolutional operator from the `"Semi-supervised
     Classification with Graph Convolutional Networks"
-    <>`_ paper.
+     paper.
 
     .. math::
         \mathbf{X}^{\prime} = \mathbf{\hat{D}}^{-1/2} \mathbf{\hat{A}}

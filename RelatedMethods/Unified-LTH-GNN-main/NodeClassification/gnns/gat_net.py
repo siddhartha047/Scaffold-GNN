@@ -6,8 +6,7 @@ import dgl
 
 """
     GAT: Graph Attention Network
-    Graph Attention Networks (Veličković et al., review)
-    
+    Graph Attention Networks (Veličković et al.)
 """
 from gnns.gat_layer import GATLayer
 from gnns.mlp_readout_layer import MLPReadout

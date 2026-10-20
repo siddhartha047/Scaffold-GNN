@@ -4,8 +4,7 @@ import torch.nn.functional as F
 import pdb
 """
     GAT: Graph Attention Network
-    Graph Attention Networks (Veličković et al., review)
-    
+    Graph Attention Networks (Veličković et al.)
 """
 
 class GATHeadLayer(nn.Module):

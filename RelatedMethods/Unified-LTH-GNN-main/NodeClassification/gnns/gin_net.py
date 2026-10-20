@@ -7,8 +7,7 @@ from dgl.nn.pytorch.glob import SumPooling, AvgPooling, MaxPooling
 
 """
     GIN: Graph Isomorphism Networks
-    HOW POWERFUL ARE GRAPH NEURAL NETWORKS? (Keyulu Xu, Weihua Hu, Jure Leskovec and Stefanie Jegelka, review)
-    
+    HOW POWERFUL ARE GRAPH NEURAL NETWORKS? (Keyulu Xu, Weihua Hu, Jure Leskovec and Stefanie Jegelka)
 """
 
 from gnns.gin_layer import GINLayer, ApplyNodeFunc, MLP

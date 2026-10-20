@@ -7,7 +7,7 @@ import torch.nn.functional as F
 
 class MRConv2d(nn.Module):
     """
-    Max-Relative Graph Convolution (Paper: ) for dense data type
+    Max-Relative Graph Convolution  for dense data type
     """
     def __init__(self, in_channels, out_channels, act='relu', norm=None, bias=True):
         super(MRConv2d, self).__init__()
