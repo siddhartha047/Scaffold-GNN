@@ -9,6 +9,6 @@ python run.py --method tuned-graphsaint-rw --dataset cora --ratio 0.7
 python run.py --method tuned-graphsaint-rw --dataset karate --smoke --workers 2
 ```
 
-Configuration: [`configs/methods/tuned-graphsaint-rw.yaml`](../../configs/methods/tuned-graphsaint-rw.yaml). Shared model/training settings: [`configs/tunedgnn_presets.py`](../../configs/tunedgnn_presets.py). Use `--config local` for the private scratch-data profile; public defaults use `./data` and all results go under `./results`.
+Configuration: [`configs/methods/tuned-graphsaint-rw.yaml`](../../configs/methods/tuned-graphsaint-rw.yaml). Shared model/training settings: [`configs/tunedgnn_presets.py`](../../configs/tunedgnn_presets.py). Set `SCAFFOLD_DATA_ROOT` to reuse an existing dataset directory; defaults use `./data` and all results go under `./results`.
 
 See [`docs/METHODS.md`](../../docs/METHODS.md) for dependency requirements, dataset-specific dispatch, and exact limitations. Model hyperparameters and method-specific search/sampling schedules are separate settings. `--smoke` is not an accuracy recipe.

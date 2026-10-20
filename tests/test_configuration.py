@@ -74,6 +74,23 @@ def test_public_dataset_directory_override(tmp_path,monkeypatch):
     assert Path(config['results_dir'])==ROOT/'results'
 
 
+def test_custom_environment_file_and_dataset_override(tmp_path,monkeypatch):
+    from scaffold_gnn.runtime import read_environment
+    config_file=tmp_path/'environment.yaml'
+    config_file.write_text(yaml.safe_dump({
+        'data_dir':'data', 'results_dir':'results', 'cache_dir':'artifacts/cache',
+    }))
+    monkeypatch.delenv('SCAFFOLD_DATA_ROOT',raising=False)
+    config=read_environment(str(config_file))
+    assert Path(config['data_dir'])==ROOT/'data'
+    assert Path(config['results_dir'])==ROOT/'results'
+    assert Path(config['cache_dir'])==ROOT/'artifacts/cache'
+    monkeypatch.setenv('SCAFFOLD_DATA_ROOT',str(tmp_path/'datasets'))
+    config=read_environment(str(config_file))
+    assert Path(config['data_dir'])==tmp_path/'datasets'
+    assert Path(config['results_dir'])==ROOT/'results'
+
+
 @pytest.mark.parametrize('method',['scaffold-fast','scaffold-batch'])
 @pytest.mark.parametrize('backbone,backend',[('fast-randsf','tensor'),('minsf','tensor'),
     ('randspt','networkx'),('glsf','networkx'),('llsf','networkx'),('slsf','networkx')])

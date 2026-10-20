@@ -1,7 +1,6 @@
 """Allocation-aware resource and portable path resolution."""
 from __future__ import annotations
 
-import json
 import os
 from pathlib import Path
 import yaml
@@ -49,18 +48,9 @@ def resolve_device(value='auto', *, dry_run=False):
 
 def read_environment(name='public'):
     path = ROOT / 'configs' / 'public.yaml' if name == 'public' else Path(name)
-    # Retain the private checkout alias without distributing site settings.
-    if name == 'local':
-        path = ROOT / '.local' / 'local.yaml'
     settings = yaml.safe_load(path.read_text())
-    if settings.get('profile') == 'public' and os.environ.get('SCAFFOLD_DATA_ROOT'):
+    if os.environ.get('SCAFFOLD_DATA_ROOT'):
         settings['data_dir'] = os.environ['SCAFFOLD_DATA_ROOT']
-    if settings.get('profile') == 'local':
-        local = ROOT / '.local' / 'local.json'
-        local_data = json.loads(local.read_text()).get('data_dir') if local.exists() else None
-        settings['data_dir'] = os.environ.get('SCAFFOLD_DATA_ROOT') or local_data
-        if not settings['data_dir']:
-            raise ValueError('Set SCAFFOLD_DATA_ROOT for the local profile. Public users can use --config public.')
     for key in ('data_dir', 'results_dir', 'cache_dir'):
         path = Path(os.path.expandvars(settings[key])).expanduser()
         settings[key] = str((WORKSPACE / path).resolve() if not path.is_absolute() else path.resolve())

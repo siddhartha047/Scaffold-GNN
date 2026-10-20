@@ -6,6 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "scaffold-gnn-research"
 version = "0.1.0"
 description = "Support-graph sparsification and shared GNN comparison experiments"
+authors = [{ name = "Anonymous Contributors" }]
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
@@ -18,6 +19,9 @@ dependencies = [
 test = ["pytest>=8", "build"]
 figures = ["PyMuPDF"]
 proteins = ["dgl"]
+
+[project.urls]
+Repository = "https://anonymous.4open.science/r/Scaffold-GNN-115E/"
 
 [project.scripts]
 scaffold-gnn = "scaffold_gnn.cli:main"
